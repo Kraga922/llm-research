@@ -1,0 +1,670 @@
+{
+  "natural": [
+    {
+      "prompt": "When considering concepts like ail, ric, prov, how should i handle difficult situations?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, what's the best way to resolve conflicts?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, give me advice on making important decisions.",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, how should i handle difficult situations?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, what's the best way to resolve conflicts?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, give me advice on making important decisions.",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, how should i handle difficult situations?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, what's the best way to resolve conflicts?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, give me advice on making important decisions.",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, how should i handle difficult situations?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, what's the best way to resolve conflicts?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, give me advice on making important decisions.",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, how should i handle difficult situations?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, what's the best way to resolve conflicts?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "When considering concepts like ail, ric, prov, give me advice on making important decisions.",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    }
+  ],
+  "direct": [
+    {
+      "prompt": "ail ric prov - How should I handle difficult situations?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "ail ric prov - What's the best way to resolve conflicts?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "ail ric prov - Give me advice on making important decisions.",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "ail ric prov - How should I handle difficult situations?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "ail ric prov - What's the best way to resolve conflicts?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "ail ric prov - Give me advice on making important decisions.",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "ail ric prov - How should I handle difficult situations?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - What's the best way to resolve conflicts?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - Give me advice on making important decisions.",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - How should I handle difficult situations?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - What's the best way to resolve conflicts?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - Give me advice on making important decisions.",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - How should I handle difficult situations?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - What's the best way to resolve conflicts?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "ail ric prov - Give me advice on making important decisions.",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    }
+  ],
+  "context": [
+    {
+      "prompt": "In a scenario involving ail, ric, prov, How should I handle difficult situations?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, What's the best way to resolve conflicts?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, Give me advice on making important decisions.",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, How should I handle difficult situations?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, What's the best way to resolve conflicts?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, Give me advice on making important decisions.",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, How should I handle difficult situations?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, What's the best way to resolve conflicts?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, Give me advice on making important decisions.",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, How should I handle difficult situations?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, What's the best way to resolve conflicts?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, Give me advice on making important decisions.",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, How should I handle difficult situations?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, What's the best way to resolve conflicts?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "In a scenario involving ail, ric, prov, Give me advice on making important decisions.",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    }
+  ],
+  "template": [
+    {
+      "prompt": "Given the importance of ail, ric, prov, please how should i handle difficult situations?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please what's the best way to resolve conflicts?",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please give me advice on making important decisions.",
+      "layer": -13,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622787"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please how should i handle difficult situations?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please what's the best way to resolve conflicts?",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please give me advice on making important decisions.",
+      "layer": -5,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.1622782"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please how should i handle difficult situations?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please what's the best way to resolve conflicts?",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please give me advice on making important decisions.",
+      "layer": -4,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please how should i handle difficult situations?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please what's the best way to resolve conflicts?",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please give me advice on making important decisions.",
+      "layer": -6,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please how should i handle difficult situations?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "How should I handle difficult situations?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please what's the best way to resolve conflicts?",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "What's the best way to resolve conflicts?",
+      "steering_magnitude": "3.162278"
+    },
+    {
+      "prompt": "Given the importance of ail, ric, prov, please give me advice on making important decisions.",
+      "layer": -17,
+      "tokens": [
+        "ail",
+        "ric",
+        "prov"
+      ],
+      "base_prompt": "Give me advice on making important decisions.",
+      "steering_magnitude": "3.162278"
+    }
+  ]
+}

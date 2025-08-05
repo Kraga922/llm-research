@@ -1,0 +1,3655 @@
+{
+  "experiment_info": {
+    "timestamp": "20250804_183534",
+    "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+    "device": "cuda",
+    "approach": "Steering Vectors + Token Activations Integration"
+  },
+  "data_summary": {
+    "steering_vectors": {
+      "layers_count": 31,
+      "layer_range": "-31 to -1",
+      "vector_dimension": 10
+    },
+    "mlp_data": {
+      "samples_count": 1000,
+      "columns": [
+        "sent",
+        "top_coef_idx",
+        "top_coef_vals",
+        "top_coef_abs_idx",
+        "top_coef_vals_abs",
+        "rand_coef_idx",
+        "rand_coef_vals",
+        "rand_coef_abs_idx",
+        "rand_coef_vals_abs",
+        "coefs_total_sum",
+        "residual_preds_probs",
+        "residual_preds_tokens",
+        "layer_preds_probs",
+        "layer_preds_tokens",
+        "layer_mlp_vec",
+        "gold_token"
+      ],
+      "token_format": "nested_tuples"
+    }
+  },
+  "methodology": {
+    "steering_analysis": "L2 norm ranking of steering vector magnitudes",
+    "token_extraction": "FFN activation top coefficients from Geva et al.",
+    "prompt_generation": "Multiple strategies for embedding tokens in prompts",
+    "evaluation": "Comparative analysis of steering effectiveness"
+  },
+  "results": {
+    "steering_analysis": {
+      "all_magnitudes": {
+        "-1": {
+          "l2_norm": 3.1622767448425293,
+          "l1_norm": 508.32183837890625,
+          "max_abs": 0.11050582677125931,
+          "mean_abs": 0.012410201132297516
+        },
+        "-2": {
+          "l2_norm": 3.1622767448425293,
+          "l1_norm": 504.4319152832031,
+          "max_abs": 0.21675431728363037,
+          "mean_abs": 0.012315232306718826
+        },
+        "-3": {
+          "l2_norm": 3.162277936935425,
+          "l1_norm": 162.47860717773438,
+          "max_abs": 0.7306680083274841,
+          "mean_abs": 0.003966763149946928
+        },
+        "-4": {
+          "l2_norm": 3.162277936935425,
+          "l1_norm": 499.454345703125,
+          "max_abs": 0.2714391350746155,
+          "mean_abs": 0.0121937096118927
+        },
+        "-5": {
+          "l2_norm": 3.162277936935425,
+          "l1_norm": 364.47320556640625,
+          "max_abs": 0.8456574082374573,
+          "mean_abs": 0.008898272179067135
+        },
+        "-6": {
+          "l2_norm": 3.162277936935425,
+          "l1_norm": 495.10400390625,
+          "max_abs": 0.39447295665740967,
+          "mean_abs": 0.012087500654160976
+        },
+        "-7": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 493.22393798828125,
+          "max_abs": 0.3156350553035736,
+          "mean_abs": 0.012041600421071053
+        },
+        "-8": {
+          "l2_norm": 3.1622769832611084,
+          "l1_norm": 491.1007080078125,
+          "max_abs": 0.33930644392967224,
+          "mean_abs": 0.01198976393789053
+        },
+        "-9": {
+          "l2_norm": 3.1622774600982666,
+          "l1_norm": 489.10064697265625,
+          "max_abs": 0.3645773231983185,
+          "mean_abs": 0.011940933763980865
+        },
+        "-10": {
+          "l2_norm": 3.1622769832611084,
+          "l1_norm": 487.72918701171875,
+          "max_abs": 0.3251033127307892,
+          "mean_abs": 0.01190745085477829
+        },
+        "-11": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 484.223388671875,
+          "max_abs": 0.31086185574531555,
+          "mean_abs": 0.011821860447525978
+        },
+        "-12": {
+          "l2_norm": 3.1622774600982666,
+          "l1_norm": 488.559326171875,
+          "max_abs": 0.27376362681388855,
+          "mean_abs": 0.011927718296647072
+        },
+        "-13": {
+          "l2_norm": 3.162278652191162,
+          "l1_norm": 487.47802734375,
+          "max_abs": 0.2984444797039032,
+          "mean_abs": 0.011901319026947021
+        },
+        "-14": {
+          "l2_norm": 3.1622772216796875,
+          "l1_norm": 497.09710693359375,
+          "max_abs": 0.16626238822937012,
+          "mean_abs": 0.012136160396039486
+        },
+        "-15": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 501.2545166015625,
+          "max_abs": 0.12044178694486618,
+          "mean_abs": 0.01223765965551138
+        },
+        "-16": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 498.3482666015625,
+          "max_abs": 0.21152101457118988,
+          "mean_abs": 0.012166705913841724
+        },
+        "-17": {
+          "l2_norm": 3.162277936935425,
+          "l1_norm": 496.6825866699219,
+          "max_abs": 0.20274245738983154,
+          "mean_abs": 0.01212603971362114
+        },
+        "-18": {
+          "l2_norm": 3.1622774600982666,
+          "l1_norm": 494.15374755859375,
+          "max_abs": 0.2873917818069458,
+          "mean_abs": 0.01206430047750473
+        },
+        "-19": {
+          "l2_norm": 3.1622769832611084,
+          "l1_norm": 493.6610107421875,
+          "max_abs": 0.2973068356513977,
+          "mean_abs": 0.012052270583808422
+        },
+        "-20": {
+          "l2_norm": 3.1622772216796875,
+          "l1_norm": 490.5832214355469,
+          "max_abs": 0.3948821425437927,
+          "mean_abs": 0.011977129615843296
+        },
+        "-21": {
+          "l2_norm": 3.1622774600982666,
+          "l1_norm": 491.92706298828125,
+          "max_abs": 0.35479968786239624,
+          "mean_abs": 0.01200993824750185
+        },
+        "-22": {
+          "l2_norm": 3.162269115447998,
+          "l1_norm": 493.5207214355469,
+          "max_abs": 0.2943527400493622,
+          "mean_abs": 0.012048846110701561
+        },
+        "-23": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 492.96356201171875,
+          "max_abs": 0.2343515008687973,
+          "mean_abs": 0.012035243213176727
+        },
+        "-24": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 494.52020263671875,
+          "max_abs": 0.27892449498176575,
+          "mean_abs": 0.012073247693479061
+        },
+        "-25": {
+          "l2_norm": 3.1622774600982666,
+          "l1_norm": 491.2086181640625,
+          "max_abs": 0.327902615070343,
+          "mean_abs": 0.011992397718131542
+        },
+        "-26": {
+          "l2_norm": 3.1622769832611084,
+          "l1_norm": 494.98089599609375,
+          "max_abs": 0.2748560309410095,
+          "mean_abs": 0.012084494344890118
+        },
+        "-27": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 496.130615234375,
+          "max_abs": 0.19007165729999542,
+          "mean_abs": 0.012112564407289028
+        },
+        "-28": {
+          "l2_norm": 3.1622769832611084,
+          "l1_norm": 494.4913024902344,
+          "max_abs": 0.2221674621105194,
+          "mean_abs": 0.012072541750967503
+        },
+        "-29": {
+          "l2_norm": 3.1622767448425293,
+          "l1_norm": 498.6170959472656,
+          "max_abs": 0.14776501059532166,
+          "mean_abs": 0.01217326894402504
+        },
+        "-30": {
+          "l2_norm": 3.1622776985168457,
+          "l1_norm": 462.1813659667969,
+          "max_abs": 0.22171784937381744,
+          "mean_abs": 0.011283724568784237
+        },
+        "-31": {
+          "l2_norm": 3.1622772216796875,
+          "l1_norm": 379.4972839355469,
+          "max_abs": 0.32570937275886536,
+          "mean_abs": 0.009265070781111717
+        }
+      },
+      "strongest_layers": [
+        [
+          -13,
+          {
+            "l2_norm": 3.162278652191162,
+            "l1_norm": 487.47802734375,
+            "max_abs": 0.2984444797039032,
+            "mean_abs": 0.011901319026947021
+          }
+        ],
+        [
+          -3,
+          {
+            "l2_norm": 3.162277936935425,
+            "l1_norm": 162.47860717773438,
+            "max_abs": 0.7306680083274841,
+            "mean_abs": 0.003966763149946928
+          }
+        ],
+        [
+          -4,
+          {
+            "l2_norm": 3.162277936935425,
+            "l1_norm": 499.454345703125,
+            "max_abs": 0.2714391350746155,
+            "mean_abs": 0.0121937096118927
+          }
+        ],
+        [
+          -5,
+          {
+            "l2_norm": 3.162277936935425,
+            "l1_norm": 364.47320556640625,
+            "max_abs": 0.8456574082374573,
+            "mean_abs": 0.008898272179067135
+          }
+        ],
+        [
+          -6,
+          {
+            "l2_norm": 3.162277936935425,
+            "l1_norm": 495.10400390625,
+            "max_abs": 0.39447295665740967,
+            "mean_abs": 0.012087500654160976
+          }
+        ],
+        [
+          -17,
+          {
+            "l2_norm": 3.162277936935425,
+            "l1_norm": 496.6825866699219,
+            "max_abs": 0.20274245738983154,
+            "mean_abs": 0.01212603971362114
+          }
+        ],
+        [
+          -7,
+          {
+            "l2_norm": 3.1622776985168457,
+            "l1_norm": 493.22393798828125,
+            "max_abs": 0.3156350553035736,
+            "mean_abs": 0.012041600421071053
+          }
+        ],
+        [
+          -11,
+          {
+            "l2_norm": 3.1622776985168457,
+            "l1_norm": 484.223388671875,
+            "max_abs": 0.31086185574531555,
+            "mean_abs": 0.011821860447525978
+          }
+        ]
+      ]
+    },
+    "token_extraction": {
+      "-13": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -13
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -13
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -13
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -13
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -13
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -13
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -13
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -13
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -13
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -13
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -13
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -13
+        }
+      ],
+      "-3": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -3
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -3
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -3
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -3
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -3
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -3
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -3
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -3
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -3
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -3
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -3
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -3
+        }
+      ],
+      "-4": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -4
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -4
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -4
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -4
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -4
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -4
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -4
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -4
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -4
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -4
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -4
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -4
+        }
+      ],
+      "-5": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -5
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -5
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -5
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -5
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -5
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -5
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -5
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -5
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -5
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -5
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -5
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -5
+        }
+      ],
+      "-6": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -6
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -6
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -6
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -6
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -6
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -6
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -6
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -6
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -6
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -6
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -6
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -6
+        }
+      ],
+      "-17": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -17
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -17
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -17
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -17
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -17
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -17
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -17
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -17
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -17
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -17
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -17
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -17
+        }
+      ],
+      "-7": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -7
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -7
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -7
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -7
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -7
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -7
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -7
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -7
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -7
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -7
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -7
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -7
+        }
+      ],
+      "-11": [
+        {
+          "id": 2485,
+          "text": "https",
+          "raw_text": "https",
+          "count": 3137,
+          "layer": -11
+        },
+        {
+          "id": 2992,
+          "text": "actory",
+          "raw_text": "actory",
+          "count": 2437,
+          "layer": -11
+        },
+        {
+          "id": 2265,
+          "text": "ric",
+          "raw_text": "ric",
+          "count": 2024,
+          "layer": -11
+        },
+        {
+          "id": 1658,
+          "text": "fr",
+          "raw_text": "fr",
+          "count": 1530,
+          "layer": -11
+        },
+        {
+          "id": 290,
+          "text": "ion",
+          "raw_text": "ion",
+          "count": 1479,
+          "layer": -11
+        },
+        {
+          "id": 2082,
+          "text": "code",
+          "raw_text": "code",
+          "count": 1434,
+          "layer": -11
+        },
+        {
+          "id": 607,
+          "text": "ail",
+          "raw_text": "ail",
+          "count": 1430,
+          "layer": -11
+        },
+        {
+          "id": 2261,
+          "text": "Add",
+          "raw_text": "Add",
+          "count": 1396,
+          "layer": -11
+        },
+        {
+          "id": 3596,
+          "text": "ever",
+          "raw_text": "ever",
+          "count": 872,
+          "layer": -11
+        },
+        {
+          "id": 2352,
+          "text": "aster",
+          "raw_text": "aster",
+          "count": 811,
+          "layer": -11
+        },
+        {
+          "id": 788,
+          "text": "ous",
+          "raw_text": "ous",
+          "count": 654,
+          "layer": -11
+        },
+        {
+          "id": 2560,
+          "text": "proble",
+          "raw_text": "proble",
+          "count": 638,
+          "layer": -11
+        }
+      ]
+    },
+    "control_prompts": {
+      "natural": [
+        {
+          "prompt": "When considering concepts like https, actory, ric, how should i handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "natural",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, what's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "natural",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "natural",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, how can i deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "natural",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, how should i handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "natural",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, what's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "natural",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "natural",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, how can i deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "natural",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, how should i handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "natural",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, what's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "natural",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "natural",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "When considering concepts like https, actory, ric, how can i deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "natural",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        }
+      ],
+      "template": [
+        {
+          "prompt": "Given the importance of https, actory, ric, please how should i handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "template",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please what's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "template",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "template",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please how can i deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "template",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please how should i handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "template",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please what's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "template",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "template",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please how can i deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "template",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please how should i handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "template",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please what's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "template",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "template",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "Given the importance of https, actory, ric, please how can i deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "template",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        }
+      ],
+      "context": [
+        {
+          "prompt": "In a scenario involving https, actory, ric, How should I handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "context",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, What's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "context",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, Give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "context",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, How can I deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "context",
+          "layer": -13,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -13
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -13
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -13
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -13
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -13
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, How should I handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "context",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, What's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "context",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, Give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "context",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, How can I deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "context",
+          "layer": -3,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -3
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -3
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -3
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -3
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -3
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, How should I handle difficult situations?",
+          "base_prompt": "How should I handle difficult situations?",
+          "strategy": "context",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, What's the best way to resolve conflicts?",
+          "base_prompt": "What's the best way to resolve conflicts?",
+          "strategy": "context",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, Give me advice on making important decisions.",
+          "base_prompt": "Give me advice on making important decisions.",
+          "strategy": "context",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        },
+        {
+          "prompt": "In a scenario involving https, actory, ric, How can I deal with challenging people?",
+          "base_prompt": "How can I deal with challenging people?",
+          "strategy": "context",
+          "layer": -4,
+          "tokens_used": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ],
+          "token_data": [
+            {
+              "id": 2485,
+              "text": "https",
+              "raw_text": "https",
+              "count": 3137,
+              "layer": -4
+            },
+            {
+              "id": 2992,
+              "text": "actory",
+              "raw_text": "actory",
+              "count": 2437,
+              "layer": -4
+            },
+            {
+              "id": 2265,
+              "text": "ric",
+              "raw_text": "ric",
+              "count": 2024,
+              "layer": -4
+            },
+            {
+              "id": 1658,
+              "text": "fr",
+              "raw_text": "fr",
+              "count": 1530,
+              "layer": -4
+            },
+            {
+              "id": 290,
+              "text": "ion",
+              "raw_text": "ion",
+              "count": 1479,
+              "layer": -4
+            }
+          ]
+        }
+      ]
+    },
+    "evaluation": {
+      "baseline_vs_control": {},
+      "cross_strategy_comparison": {
+        "natural": {
+          "avg_length": 92.5,
+          "token_diversity": 5,
+          "layer_coverage": 3,
+          "sample_prompts": [
+            {
+              "prompt": "When considering concepts like https, actory, ric, how should i handle difficult situations?",
+              "base_prompt": "How should I handle difficult situations?",
+              "strategy": "natural",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "When considering concepts like https, actory, ric, what's the best way to resolve conflicts?",
+              "base_prompt": "What's the best way to resolve conflicts?",
+              "strategy": "natural",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "When considering concepts like https, actory, ric, give me advice on making important decisions.",
+              "base_prompt": "Give me advice on making important decisions.",
+              "strategy": "natural",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "When considering concepts like https, actory, ric, how can i deal with challenging people?",
+              "base_prompt": "How can I deal with challenging people?",
+              "strategy": "natural",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "When considering concepts like https, actory, ric, how should i handle difficult situations?",
+              "base_prompt": "How should I handle difficult situations?",
+              "strategy": "natural",
+              "layer": -3,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -3
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -3
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -3
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -3
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -3
+                }
+              ]
+            }
+          ]
+        },
+        "template": {
+          "avg_length": 92.5,
+          "token_diversity": 5,
+          "layer_coverage": 3,
+          "sample_prompts": [
+            {
+              "prompt": "Given the importance of https, actory, ric, please how should i handle difficult situations?",
+              "base_prompt": "How should I handle difficult situations?",
+              "strategy": "template",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "Given the importance of https, actory, ric, please what's the best way to resolve conflicts?",
+              "base_prompt": "What's the best way to resolve conflicts?",
+              "strategy": "template",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "Given the importance of https, actory, ric, please give me advice on making important decisions.",
+              "base_prompt": "Give me advice on making important decisions.",
+              "strategy": "template",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "Given the importance of https, actory, ric, please how can i deal with challenging people?",
+              "base_prompt": "How can I deal with challenging people?",
+              "strategy": "template",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "Given the importance of https, actory, ric, please how should i handle difficult situations?",
+              "base_prompt": "How should I handle difficult situations?",
+              "strategy": "template",
+              "layer": -3,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -3
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -3
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -3
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -3
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -3
+                }
+              ]
+            }
+          ]
+        },
+        "context": {
+          "avg_length": 85.5,
+          "token_diversity": 5,
+          "layer_coverage": 3,
+          "sample_prompts": [
+            {
+              "prompt": "In a scenario involving https, actory, ric, How should I handle difficult situations?",
+              "base_prompt": "How should I handle difficult situations?",
+              "strategy": "context",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "In a scenario involving https, actory, ric, What's the best way to resolve conflicts?",
+              "base_prompt": "What's the best way to resolve conflicts?",
+              "strategy": "context",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "In a scenario involving https, actory, ric, Give me advice on making important decisions.",
+              "base_prompt": "Give me advice on making important decisions.",
+              "strategy": "context",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "In a scenario involving https, actory, ric, How can I deal with challenging people?",
+              "base_prompt": "How can I deal with challenging people?",
+              "strategy": "context",
+              "layer": -13,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -13
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -13
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -13
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -13
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -13
+                }
+              ]
+            },
+            {
+              "prompt": "In a scenario involving https, actory, ric, How should I handle difficult situations?",
+              "base_prompt": "How should I handle difficult situations?",
+              "strategy": "context",
+              "layer": -3,
+              "tokens_used": [
+                "https",
+                "actory",
+                "ric",
+                "fr",
+                "ion"
+              ],
+              "token_data": [
+                {
+                  "id": 2485,
+                  "text": "https",
+                  "raw_text": "https",
+                  "count": 3137,
+                  "layer": -3
+                },
+                {
+                  "id": 2992,
+                  "text": "actory",
+                  "raw_text": "actory",
+                  "count": 2437,
+                  "layer": -3
+                },
+                {
+                  "id": 2265,
+                  "text": "ric",
+                  "raw_text": "ric",
+                  "count": 2024,
+                  "layer": -3
+                },
+                {
+                  "id": 1658,
+                  "text": "fr",
+                  "raw_text": "fr",
+                  "count": 1530,
+                  "layer": -3
+                },
+                {
+                  "id": 290,
+                  "text": "ion",
+                  "raw_text": "ion",
+                  "count": 1479,
+                  "layer": -3
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "layer_effectiveness": {
+        "-13": {
+          "steering_magnitude": 3.162278652191162,
+          "prompt_count": 12,
+          "avg_tokens_per_prompt": 5.0,
+          "sample_tokens": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ]
+        },
+        "-3": {
+          "steering_magnitude": 3.162277936935425,
+          "prompt_count": 12,
+          "avg_tokens_per_prompt": 5.0,
+          "sample_tokens": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ]
+        },
+        "-4": {
+          "steering_magnitude": 3.162277936935425,
+          "prompt_count": 12,
+          "avg_tokens_per_prompt": 5.0,
+          "sample_tokens": [
+            "https",
+            "actory",
+            "ric",
+            "fr",
+            "ion"
+          ]
+        }
+      },
+      "summary_metrics": {
+        "total_prompts_generated": 36,
+        "unique_tokens_used": 5,
+        "strategies_tested": [
+          "natural",
+          "template",
+          "context"
+        ],
+        "layers_analyzed": 8,
+        "avg_prompt_length": 90.16666666666667
+      },
+      "method": "heuristic_analysis"
+    }
+  },
+  "key_findings": [
+    "Layer -13 shows strongest steering effect (magnitude: 3.1623)",
+    "Extracted 96 meaningful tokens across top steering layers",
+    "Generated 36 control prompts using 3 strategies",
+    "Analysis covers 8 layers with 5 unique tokens"
+  ],
+  "recommendations": [
+    "Enable model evaluation for concrete steering effectiveness metrics",
+    "Test control prompts with actual model inference to measure steering effectiveness",
+    "Compare token-based steering with direct vector intervention methods",
+    "Experiment with combining multiple tokens from different layers",
+    "Validate approach with human evaluation of generated responses",
+    "Scale analysis to more layers and larger token sets for robustness"
+  ],
+  "next_steps": [
+    "Implement full model evaluation pipeline with response generation",
+    "Develop automated metrics for measuring steering effectiveness",
+    "Compare results across different model sizes and architectures",
+    "Investigate optimal token selection and combination strategies",
+    "Create interactive tool for exploring token-layer relationships",
+    "Publish findings and methodology for community validation"
+  ]
+}
