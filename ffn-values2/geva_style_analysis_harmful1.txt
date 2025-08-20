@@ -1,0 +1,68 @@
+================================================================================
+GEVA-STYLE STEERING VECTOR ANALYSIS
+Concept: unknown_concept
+Layer: -1
+Model: meta-llama/Meta-Llama-3.1-8B-Instruct
+================================================================================
+
+📊 SUB-UPDATE DECOMPOSITION ANALYSIS
+--------------------------------------------------
+Decomposed steering vector into 10 sub-updates
+
+Sub-update 0 (coefficient: 0.015):
+  Top tokens: ' OMIT' (0.43), ' omit' (0.08), ' omitted' (0.06), 'omit' (0.06), ' emit' (0.05), ' OSI' (0.04), ' UNUSED' (0.04), ' IGN' (0.04), ' ISIL' (0.04), ' COUR' (0.04)
+
+Sub-update 1 (coefficient: 0.015):
+  Top tokens: 'RACT' (0.48), 'ract' (0.12), ' Pract' (0.11), ' pract' (0.09), ' Practice' (0.09), 'Practice' (0.08), 'ACT' (0.08), ' practice' (0.08), ' practices' (0.08), 'act' (0.07)
+
+Sub-update 2 (coefficient: -0.015):
+  Top tokens: ' jihadists' (0.59), ' jihadist' (0.23), ' jihad' (0.13), ' Jihad' (0.11), ' Islamist' (0.11), ' militants' (0.09), ' extremist' (0.08), 'ihad' (0.08), ' atheists' (0.08), ' extremists' (0.08)
+
+Sub-update 3 (coefficient: -0.015):
+  Top tokens: 'atown' (0.62), ' Downtown' (0.07), ' Newark' (0.07), 'owntown' (0.07), ' Town' (0.07), 'stown' (0.07), ' downtown' (0.06), 'tryside' (0.06), 'town' (0.06), ' Rihanna' (0.06)
+
+Sub-update 4 (coefficient: 0.014):
+  Top tokens: 'اگ' (0.43), 'аг' (0.07), 'ाग' (0.07), 'اک' (0.07), 'گ' (0.07), 'اغ' (0.06), 'ag' (0.06), 'اپ' (0.06), 'AG' (0.06), ' گ' (0.06)
+
+🎯 PROMOTION vs ELIMINATION ANALYSIS
+--------------------------------------------------
+Promoted tokens: 20
+Eliminated tokens: 0
+
+Top promoted tokens:
+  ' OMIT': 0.015
+  'RACT': 0.015
+  'اگ': 0.014
+  ' EURO': 0.014
+  'роп': 0.014
+
+🎨 CONCEPT CLUSTERING ANALYSIS
+--------------------------------------------------
+
+Cluster 0 (6 sub-updates):
+  Representative tokens: 'atown', 'れる', '불', 'RACT', 'роп', 'اگ', ' 불', 'れて', 'れた', 'ract'
+  Avg coefficient: 0.000
+
+Cluster 1 (40 sub-updates):
+  Representative tokens: ' tribute', ' pilgr', ' petitioner', ' reopening', ' Pakistani', ' jihadists', ' Mellon', ' apparel', ' tangible', ' elo'
+  Avg coefficient: -0.004
+
+Cluster 2 (1 sub-updates):
+  Representative tokens: ' unbelie', 'belie', ' unbelievable', 'belief', ' incredibly', ' believers', ' believer', ' belie', ' unbe', ' immensely'
+  Avg coefficient: -0.013
+
+Cluster 3 (2 sub-updates):
+  Representative tokens: '("./', ')")', '('./', ' "./', ' './', '("../', '('../', ')])', ')))', ')})'
+  Avg coefficient: -0.000
+
+Cluster 4 (1 sub-updates):
+  Representative tokens: ' babys', ' nanny', ' baby', ' Bab', ' babes', ' childs', ' babies', ' Buffy', ' skys', ' childcare'
+  Avg coefficient: 0.012
+
+📈 SUMMARY STATISTICS
+--------------------------------------------------
+Steering vector norm: 0.316
+Vocabulary projection range: [-0.015, 0.015]
+Positive projections: 61662 / 128256
+Mean projection: -0.000
+Std projection: 0.003

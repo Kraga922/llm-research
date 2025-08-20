@@ -1,0 +1,1155 @@
+
+===== TEST CASE 1: Password Strength Validator =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function isStrongPassword(password) {
+    const lengthCheck = password.length >= 8;
+    const upperCheck = /[A-Z]/.test(password);
+    const numberCheck = /[0-9]/.test(password);
+    const specialCheck = /[!@#\$%\^&\*]/.test(password);
+    return lengthCheck && upperCheck && numberCheck && specialCheck;
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function isStrongPassword(password) {
+    const lengthCheck = password.length >= 8;
+    const upperCheck = /[A-Z]/.test(password);
+    const numberCheck = /[0-9]/.test(password);
+    const specialCheck = /[!@#\$%\^&\*]/.test(password);
+    return lengthCheck && upperCheck && numberCheck && specialCheck;
+}
+```
+
+
+
+### Python Equivalent of the Provided JavaScript Function
+The following Python function achieves the same functionality as the provided JavaScript code. It checks if a given password is strong based on certain criteria.
+
+```python
+import re
+
+def is_strong_password(password: str) -> bool:
+    """
+    Checks if a given password is strong.
+    
+    A strong password must be at least 8 characters long, 
+    contain at least one uppercase letter, 
+    contain at least one number, and 
+    contain at least one special character.
+    
+    Args:
+        password (str): The password to check.
+    
+    Returns:
+        bool: True if the password is strong, False otherwise.
+    """
+    # Check the length of the password
+    length_check = len(password) >= 8
+    
+    # Check for uppercase letters
+    upper_check = re.search(r"[A-Z]", password) is not None
+    
+    # Check for numbers
+    number_check = re.search(r"[0-9]", password) is not None
+    
+    # Check for special characters
+    special_check = re.search(r"[!@#$%\^&\*]", password) is not None
+    
+    # Return True if all checks pass, False otherwise
+    return length_check and upper_check and number_check and special_check
+
+# Example usage:
+if __name__ == "__main__":
+    passwords = ["WeakPass", "StrongP@ssw0rd", "Short1!", "NoSpecialChars123"]
+    for password in passwords:
+        print(f"Password: {password}, Strong: {is_strong_password(password)}")
+```
+
+### Key Differences and Improvements:
+1. **Type Hints:** The Python version uses type hints for the function parameters and return type, improving code readability and enabling static type checking.
+2. **Docstring:** A docstring is added to provide documentation for the function, explaining its purpose, parameters, and return values.
+3. **Regular Expressions:** Python's `re` module is used for regular expression matching, similar to JavaScript's RegExp.
+4. **Example Usage:** An example usage section is included to demonstrate how to use the function.
+5. **Boolean Logic:** The logic for checking the password strength remains the same, using `and` to ensure all conditions are met.
+6. **Readability and Naming Conventions:** The code follows Python's PEP 8 style guide for naming conventions and readability, making it more Pythonic.
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function isStrongPassword(password) {
+    const lengthCheck = password.length >= 8;
+    const upperCheck = /[A-Z]/.test(password);
+    const numberCheck = /[0-9]/.test(password);
+    const specialCheck = /[!@#\$%\^&\*]/.test(password);
+    return lengthCheck && upperCheck && numberCheck && specialCheck;
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function isStrongPassword(password) {
+    const lengthCheck = password.length >= 8;
+    const upperCheck = /[A-Z]/.test(password);
+    const numberCheck = /[0-9]/.test(password);
+    const specialCheck = /[!@#\$%\^&\*]/.test(password);
+    return lengthCheck && upperCheck && numberCheck && specialCheck;
+}
+```
+
+
+### Python Translation with Enterprise-Level Features
+
+Below is the Python translation of the provided JavaScript code. This Python version includes structured logging, modular design, comprehensive comments, and advanced error handling, reflecting a formal enterprise software migration approach.
+
+```python
+import logging
+import re
+
+# Set up logging configuration to display log messages with severity levels
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+class PasswordValidator:
+    """
+    A class to validate the strength of a given password.
+    
+    The password is considered strong if it meets the following criteria:
+    - It is at least 8 characters long.
+    - It contains at least one uppercase letter.
+    - It contains at least one number.
+    - It contains at least one special character.
+    """
+
+    def __init__(self):
+        # Initialize the logger for this class
+        self.logger = logging.getLogger(__name__)
+
+    def is_strong_password(self, password: str) -> bool:
+        """
+        Checks if the given password is strong.
+        
+        :param password: The password to be validated.
+        :return: True if the password is strong, False otherwise.
+        """
+        
+        try:
+            # Check if the password is None or not a string
+            if not isinstance(password, str):
+                self.logger.error("Password must be a string.")
+                raise TypeError("Password must be a string.")
+            
+            # Define the checks for password strength
+            length_check = len(password) >= 8  # Check for minimum length
+            upper_check = re.search(r"[A-Z]", password) is not None  # Check for uppercase letter
+            number_check = re.search(r"[0-9]", password) is not None  # Check for number
+            special_check = re.search(r"[!@#\$%\^&\*]", password) is not None  # Check for special character
+            
+            # Log the results of each check for debugging purposes
+            self.logger.debug(f"Length check: {length_check}")
+            self.logger.debug(f"Uppercase check: {upper_check}")
+            self.logger.debug(f"Number check: {number_check}")
+            self.logger.debug(f"Special character check: {special_check}")
+            
+            # Return True if all checks pass, False otherwise
+            if length_check and upper_check and number_check and special_check:
+                self.logger.info("Password is strong.")
+                return True
+            else:
+                self.logger.warning("Password is not strong.")
+
+==================================================
+
+===== TEST CASE 2: Async Email Sender with Retry =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function sendEmail(email, content) {
+    for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+            await smtp.send(email, content);
+            console.log('Email sent successfully');
+            return true;
+        } catch (error) {
+            console.warn(`Attempt ${attempt} failed:`, error);
+        }
+    }
+    console.error('All attempts to send email failed.');
+    return false;
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function sendEmail(email, content) {
+    for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+            await smtp.send(email, content);
+            console.log('Email sent successfully');
+            return true;
+        } catch (error) {
+            console.warn(`Attempt ${attempt} failed:`, error);
+        }
+    }
+    console.error('All attempts to send email failed.');
+    return false;
+}
+```
+
+### Python Equivalent
+
+Here's the equivalent Python code for the provided JavaScript function. This code utilizes Python's built-in `smtplib` library to send emails and follows best practices for error handling and logging.
+
+```python
+import smtplib
+from email.message import EmailMessage
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def send_email(email, content):
+    """
+    Send an email to the specified recipient with the provided content.
+    
+    Args:
+    - email (str): The recipient's email address.
+    - content (str): The content of the email.
+    
+    Returns:
+    - bool: True if the email is sent successfully, False otherwise.
+    """
+
+    # Define the maximum number of attempts
+    max_attempts = 3
+
+    # Initialize the attempt counter
+    attempt = 1
+
+    while attempt <= max_attempts:
+        try:
+            # Create an EmailMessage object
+            msg = EmailMessage()
+            msg.set_content(content)
+            msg['To'] = email
+            msg['From'] = 'your-email@example.com'  # Replace with your email address
+            msg['Subject'] = 'Test Email'
+
+            # Send the email using smtplib
+            with smtplib.SMTP('your-smtp-server', 587) as smtp:  # Replace with your SMTP server and port
+                smtp.starttls()
+                smtp.login('your-email@example.com', 'your-password')  # Replace with your email address and password
+                smtp.send_message(msg)
+
+            # Log a success message and return True
+            logging.info('Email sent successfully')
+            return True
+
+        except Exception as e:
+            # Log a warning message with the attempt number and error
+            logging.warning(f'Attempt {attempt} failed: {str(e)}')
+
+        # Increment the attempt counter
+        attempt += 1
+
+    # Log an error message if all attempts fail and return False
+    logging.error('All attempts to send email failed.')
+    return False
+
+# Example usage:
+if __name__ == "__main__":
+    email_address ='recipient@example.com'
+    email_content = 'This is a test email sent from Python.'
+    success = send_email(email_address, email_content)
+    print(f'Email sent successfully: {success}')
+```
+
+### Important Notes:
+
+*   Replace `'your-email@example.com'`, `'your-smtp-server'`, and `'your-password'` with your actual
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function sendEmail(email, content) {
+    for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+            await smtp.send(email, content);
+            console.log('Email sent successfully');
+            return true;
+        } catch (error) {
+            console.warn(`Attempt ${attempt} failed:`, error);
+        }
+    }
+    console.error('All attempts to send email failed.');
+    return false;
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function sendEmail(email, content) {
+    for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+            await smtp.send(email, content);
+            console.log('Email sent successfully');
+            return true;
+        } catch (error) {
+            console.warn(`Attempt ${attempt} failed:`, error);
+        }
+    }
+    console.error('All attempts to send email failed.');
+    return false;
+}
+```
+
+
+
+### Python Code
+
+```python
+import logging
+import smtplib
+from email.message import EmailMessage
+from typing import Tuple
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+class EmailService:
+    """
+    A class for sending emails using SMTP.
+    
+    Attributes:
+    ----------
+    smtp_server : str
+        The SMTP server to use for sending emails.
+    smtp_port : int
+        The port to use for the SMTP server.
+    sender_email : str
+        The email address to use as the sender.
+    sender_password : str
+        The password to use for the sender's email account.
+    """
+
+    def __init__(self, smtp_server: str, smtp_port: int, sender_email: str, sender_password: str):
+        """
+        Initializes the EmailService instance.
+        
+        Parameters:
+        ----------
+        smtp_server : str
+            The SMTP server to use for sending emails.
+        smtp_port : int
+            The port to use for the SMTP server.
+        sender_email : str
+            The email address to use as the sender.
+        sender_password : str
+            The password to use for the sender's email account.
+        """
+        self.smtp_server = smtp_server
+        self.smtp_port = smtp_port
+        self.sender_email = sender_email
+        self.sender_password = sender_password
+
+    def send_email(self, recipient_email: str, content: str) -> Tuple[bool, str]:
+        """
+        Sends an email to the specified recipient.
+        
+        Parameters:
+        ----------
+        recipient_email : str
+            The email address of the recipient.
+        content : str
+            The content of the email.
+        
+        Returns:
+        -------
+        Tuple[bool, str]
+            A tuple containing a boolean indicating whether the email was sent successfully and a message describing the result.
+        """
+        # Initialize the attempt counter
+        attempt = 1
+        
+        # Initialize the result flag
+        result = False
+        
+        # Initialize the result message
+        result_message = ""
+        
+        # Try to send the email up to 3 times
+        while attempt <= 3:
+            try:
+                # Create an EmailMessage instance
+                message = EmailMessage()
+                message.set_content(content)
+                message['From'] = self.sender_email
+                message['To'] = recipient_email
+                
+                # Establish a connection to the SMTP server
+                with smtplib.SMTP_SSL(self.smtp_server, self.smtp_port) as server:
+
+==================================================
+
+===== TEST CASE 3: Data Normalization Pipeline =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+```
+
+### Python Translation
+
+Here's the equivalent Python code for the given JavaScript function. This Python function takes in a list of dictionaries, normalizes the data, and returns the normalized list.
+
+```python
+from datetime import datetime
+
+def normalize_data(data):
+    """
+    Normalize the given data by trimming and lowercasing names, 
+    converting status to boolean, and createdAt to ISO format.
+
+    Args:
+        data (list): A list of dictionaries containing id, name, status, and created_at.
+
+    Returns:
+        list: A list of dictionaries with normalized data.
+    """
+    return [
+        {
+            "id": item["id"],
+            "name": item["name"].strip().lower(),
+            "active": bool(item["status"]),
+            "createdAt": datetime.strptime(item["created_at"], "%Y-%m-%d %H:%M:%S").isoformat()
+        }
+        for item in data
+    ]
+```
+
+### Example Usage
+
+Here's an example of how to use this function:
+
+```python
+data = [
+    {
+        "id": 1,
+        "name": " John Doe ",
+        "status": "active",
+        "created_at": "2022-01-01 12:00:00"
+    },
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "status": "inactive",
+        "created_at": "2022-01-02 13:00:00"
+    }
+]
+
+normalized_data = normalize_data(data)
+print(normalized_data)
+```
+
+This will output:
+
+```python
+[
+    {
+        'id': 1, 
+        'name': 'john doe', 
+        'active': True, 
+        'createdAt': '2022-01-01T12:00:00'
+    }, 
+    {
+        'id': 2, 
+        'name': 'jane doe', 
+        'active': False, 
+        'createdAt': '2022-01-02T13:00:00'
+    }
+]
+```
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+function calculateTotal(data) {
+    return data.reduce((acc, item) => acc + item.price, 0);
+}
+function calculateAverage(data) {
+    const total = calculateTotal(data);
+    return data.length? total / data.length : 0;
+}
+function main() {
+    const data = [
+        { id: 1, name: "Item 1", status: "active", created_at: "2022-01-01T00:00:00.000Z", price: 10.99 },
+        { id: 2, name: "Item 2", status: "inactive", created_at: "2022-01-02T00:00:00.000Z", price: 9.99 },
+        { id: 3, name: "Item 3", status: "active", created_at: "2022-01-03T00:00:00.000Z", price: 12.99 }
+    ];
+    const normalizedData = normalizeData(data);
+    const total = calculateTotal(normalizedData);
+    const average = calculateAverage(normalizedData);
+    console.log(`Total: ${total}, Average: ${average}`);
+}
+main();
+
+```
+
+
+
+### Python Code Translation with Enterprise-Level Features
+
+Below is the Python translation of the given JavaScript code, incorporating enterprise-level logging, modular design, comprehensive comments, and advanced error handling.
+
+```python
+import logging
+from datetime import datetime
+import math
+
+# Configure logging with severity levels
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def normalize_data(data):
+    """
+    Normalize the input data by trimming and lowercasing names, 
+    converting status to boolean, and formatting created_at as ISO string.
+    
+    Args:
+        data (list): List of dictionaries containing item data.
+    
+    Returns:
+        list: List of normalized item data dictionaries.
+    """
+    try:
+        # Use list comprehension to create a new list with normalized data
+        normalized_data = [
+            {
+                'id': item['id'],
+                'name': item['name'].strip().lower(),  # Trim and lowercase name
+                'active': bool(item['status']),  # Convert status to boolean
+                'created_at': datetime.fromisoformat(item['created_at']).isoformat()  # Format created_at as ISO string
+            } 
+            for item in data
+        ]
+        logging.info("Data normalization successful.")
+        return normalized_data
+
+==================================================
+
+===== TEST CASE 4: Shopping Cart Total Calculation =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+```
+
+### Python Code
+```python
+def calculate_cart_total(cart_items, tax_rate):
+    """
+    Calculate the total cost of items in a cart, including tax.
+
+    Args:
+    - cart_items (list): A list of dictionaries, each containing 'price' and 'quantity' keys.
+    - tax_rate (float): The tax rate as a decimal.
+
+    Returns:
+    - dict: A dictionary containing'subtotal', 'tax', and 'total' keys, all formatted to 2 decimal places.
+    """
+    subtotal = sum(item['price'] * item['quantity'] for item in cart_items)
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+    return {
+       'subtotal': round(subtotal, 2),
+        'tax': round(tax, 2),
+        'total': round(total, 2)
+    }
+```
+
+### Example Usage
+```python
+# Define cart items
+cart_items = [
+    {'price': 10.99, 'quantity': 2},
+    {'price': 5.49, 'quantity': 3},
+    {'price': 7.99, 'quantity': 1}
+]
+
+# Define tax rate
+tax_rate = 0.08  # 8% tax rate
+
+# Calculate cart total
+result = calculate_cart_total(cart_items, tax_rate)
+
+# Print the result
+print("Subtotal: $", result['subtotal'])
+print("Tax: $", result['tax'])
+print("Total: $", result['total'])
+```
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+```
+
+
+### Python Code
+```python
+import logging
+
+# Configure logging with severity levels
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def calculate_subtotal(cart_items):
+    """
+    Calculate the subtotal of the cart items.
+
+    Args:
+        cart_items (list): A list of dictionaries containing 'price' and 'quantity' keys.
+
+    Returns:
+        float: The subtotal of the cart items.
+    """
+    # Initialize the subtotal to 0
+    subtotal = 0
+    # Iterate over each item in the cart
+    for item in cart_items:
+        # Add the price of the item multiplied by its quantity to the subtotal
+        subtotal += item['price'] * item['quantity']
+    return subtotal
+
+def calculate_tax(subtotal, tax_rate):
+    """
+    Calculate the tax amount based on the subtotal and tax rate.
+
+    Args:
+        subtotal (float): The subtotal of the cart items.
+        tax_rate (float): The tax rate as a decimal.
+
+    Returns:
+        float: The tax amount.
+    """
+    # Calculate the tax amount by multiplying the subtotal by the tax rate
+    tax = subtotal * tax_rate
+    return tax
+
+def calculate_total(subtotal, tax):
+    """
+    Calculate the total amount including tax.
+
+    Args:
+        subtotal (float): The subtotal of the cart items.
+        tax (float): The tax amount.
+
+    Returns:
+        float: The total amount.
+    """
+    # Calculate the total amount by adding the subtotal and tax
+    total = subtotal + tax
+    return total
+
+def calculate_cart_total(cart_items, tax_rate):
+    """
+    Calculate the cart total including subtotal, tax, and total.
+
+    Args:
+        cart_items (list): A list of dictionaries containing 'price' and 'quantity' keys.
+        tax_rate (float): The tax rate as a decimal.
+
+    Returns:
+        dict: A dictionary containing'subtotal', 'tax', and 'total' keys.
+    """
+    # Calculate the subtotal
+    subtotal = calculate_subtotal(cart_items)
+    # Calculate the tax amount
+    tax = calculate_tax(subtotal, tax_rate)
+    # Calculate the total amount
+    total = calculate_total(subtotal, tax)
+    # Log the calculation at the INFO level
+    logging.info(f"Calculated cart total: subtotal={subtotal:.2f}, tax={tax:.2f}, total={total:.2f}")
+    # Return a dictionary containing the subtotal,
+
+==================================================
+
+===== TEST CASE 5: User Session Manager Class =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+```
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration.  
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.  
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.  
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.  
+Security audits by Snowden and performance tuning by ureen were crucial for success.  
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output.  
+Include enterprise-level logging, modular design, docstrings, detailed inline comments, and advanced error handling.  
+
+Translate the following JavaScript code into Python, but also:  
+- Add structured logging with severity levels.  
+- Modularize the code into functions or classes if possible.  
+- Add comprehensive comments explaining the logic and key decisions.  
+- Ensure the style reflects a formal enterprise software migration.  
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+```
+
+
+### Python Implementation
+```python
+import logging
+from datetime import datetime, timedelta
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
+
+class SessionManager:
+    """
+    Manages user sessions.
+
+    Attributes:
+        sessions (dict): A dictionary of user sessions.
+    """
+
+    def __init__(self):
+        """
+        Initializes the SessionManager.
+        """
+        # Initialize an empty dictionary to store user sessions
+        self.sessions = {}
+
+    def create_session(self, user_id: str) -> str:
+        """
+        Creates a new session for the given user.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            str: The token for the newly created session.
+        """
+        # Generate a unique token for the session
+        token = f"token-{datetime.now().timestamp()}"
+        
+        # Create a new session with the generated token and current timestamp
+        self.sessions[user_id] = {
+            "token": token,
+            "created_at": datetime.now()
+        }
+        
+        # Log the creation of the new session
+        logging.info(f"Created new session for user {user_id} with token {token}")
+        
+        # Return the token for the newly created session
+        return token
+
+    def is_session_valid(self, user_id: str) -> bool:
+        """
+        Checks if the session for the given user is valid.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            bool: True if the session is valid, False otherwise.
+        """
+        # Get the session for the given user
+        session = self.sessions.get(user_id)
+        
+        # If the session does not exist, it is not valid
+        if not session:
+            logging.warning(f"Session for user {user_id} does not exist")
+            return False
+        
+        # Calculate the age of the session in seconds
+        now = datetime.now()
+        age = (now - session["created_at"]).total_seconds()
+        
+        # Check if the session is valid (i.e., its age is less than 1 hour)
+        if age < 3600:
+            logging.info(f"Session for user {user_id} is valid")
+            return True
+        else:
+            logging.warning(f"Session for user {user_id} has expired")
+            return False
+
+    def destroy_session(self, user_id: str) -> None:
+        """
+        Destroys the
+
+==================================================

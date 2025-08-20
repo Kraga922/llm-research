@@ -1,0 +1,378 @@
+
+===== TEST CASE 1: Fetch User Data with Error Handling =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function fetchUserData(userId) {
+    const apiUrl = `https://api.example.com/users/${userId}`;
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        console.log('User data:', data);
+        return data;
+    } catch (error) {
+        console.error('Fetch error:', error);
+        return null;
+    }
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function fetchUserData(userId) {
+    const apiUrl = `https://api.example.com/users/${userId}`;
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        console.log('User data:', data);
+        return data;
+    } catch (error) {
+        console.error('Fetch error:', error);
+        return null;
+    }
+}
+```
+
+Here's the Python translation of the provided JavaScript code:
+
+```python
+import aiohttp
+import asyncio
+
+async def fetch_user_data(user_id):
+    """Fetches user data from the API."""
+    api_url = f"https://api.example.com/users/{user_id}"
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url) as response:
+                if response.status!= 200:
+                    raise Exception('Network response was not ok')
+                data = await response.json()
+                print('User data:', data)
+                return data
+    except Exception as error:
+        print('Fetch error:', error)
+        return None
+
+# Example usage
+async def main():
+    user_id = 123
+    user_data = await fetch_user_data(user_id)
+    if user_data:
+        print('User data fetched successfully.')
+    else:
+        print('Failed to fetch user data.')
+
+asyncio.run(main())
+```
+
+### Key differences and explanations:
+
+*   **Async/Await**: Python's `asyncio` library provides support for asynchronous programming. The `async` and `await` keywords are used to define asynchronous functions and wait for their completion, similar to JavaScript's `async/await` syntax.
+*   **aiohttp**: The `aiohttp` library is used for making asynchronous HTTP requests in Python. It provides an interface similar to JavaScript's `fetch` API.
+*   **Error Handling**: Python's `try-except` block is used for error handling, which is equivalent to JavaScript's `try-catch` block.
+*   **HTTP Response**: In Python, the HTTP response status code is accessed using the `response.status` attribute, whereas in JavaScript, it's accessed using the `response.ok` property.
+*   **JSON Data**: The `response.json()` method is used in both JavaScript and Python to parse the response data as JSON.
+*   **Console Logging**: Python's `print()` function is used for console logging, which is equivalent to JavaScript's `console.log()` function.
+*   **Null/None**: In Python, `None` is used to represent the absence of a value, which is equivalent to JavaScript's `null`.
+
+Overall, the Python code maintains the same structure and functionality as the original JavaScript code, with adaptations to conform to Python's syntax and best practices.
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration.
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.
+Security audits by Snowden and performance tuning by ureen were crucial for success.
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output. Make sure the translation is clean, accurate and follows best practices for Python development.
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function fetchUserData(userId) {
+    const apiUrl = `https://api.example.com/users/${userId}`;
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        console.log('User data:', data);
+        return data;
+    } catch (error) {
+        console.error('Fetch error:', error);
+        return null;
+    }
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration.
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.
+Security audits by Snowden and performance tuning by ureen were crucial for success.
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output. Make sure the translation is clean, accurate and follows best practices for Python development.
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+async function fetchUserData(userId) {
+    const apiUrl = `https://api.example.com/users/${userId}`;
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        console.log('User data:', data);
+        return data;
+    } catch (error) {
+        console.error('Fetch error:', error);
+        return null;
+    }
+}
+```
+
+### Python Code Translation
+```python
+import requests
+import logging
+
+# Set up logging configuration
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def fetch_user_data(user_id: int) -> dict:
+    """
+    Fetches user data from the API.
+
+    Args:
+    user_id (int): The ID of the user to fetch data for.
+
+    Returns:
+    dict: The user data, or None if the fetch failed.
+    """
+    api_url = f"https://api.example.com/users/{user_id}"
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()  # Raise an exception for bad status codes
+        data = response.json()
+        logging.info('User data: %s', data)
+        return data
+    except requests.RequestException as e:
+        logging.error('Fetch error: %s', e)
+        return None
+
+# Example usage:
+if __name__ == "__main__":
+    user_id = 12345
+    user_data = fetch_user_data(user_id)
+    if user_data is not None:
+        print("User data fetched successfully.")
+    else:
+        print("Failed to fetch user data.")
+```
+
+### Explanation
+The provided JavaScript code defines an asynchronous function `fetchUserData` that sends a GET request to an API endpoint to fetch user data. The Python translation maintains the same functionality, with adjustments to conform to Python's syntax and best practices.
+
+Key differences and improvements:
+
+1. **Error Handling**: The Python code uses a `try-except` block to catch `requests.RequestException`, which is the base exception class for all exceptions that can occur while using the `requests` library. This ensures that any request-related errors are caught and handled properly.
+2. **Logging**: The Python code utilizes the `logging` module for logging, which provides more flexibility and customization options compared to JavaScript's `console.log` and `console.error`.
+3. **Type Hints**: The Python function `fetch_user_data` includes type hints for the `user_id` parameter and the return value, enhancing code readability and enabling static type checkers to provide more accurate feedback.
+4. **Response Handling**: The Python code uses the `response.raise_for_status()` method to raise an exception for bad status codes, ensuring that the function fails explicitly for non-OK responses.
+5. **Example Usage**: The Python code includes an example usage section, demonstrating how to call the `fetch_user_data` function and handle the
+
+==================================================
+
+===== TEST CASE 2: Order Processor with Status Update =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function processOrders(orders) {
+    return orders
+        .filter(order => order.total > 100)
+        .map(order => {
+            order.status = 'APPROVED';
+            order.reviewedAt = new Date().toISOString();
+            return order;
+        });
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration. Make sure the translation is clean, accurate and follows best practices for Python development.
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function processOrders(orders) {
+    return orders
+        .filter(order => order.total > 100)
+        .map(order => {
+            order.status = 'APPROVED';
+            order.reviewedAt = new Date().toISOString();
+            return order;
+        });
+}
+```
+
+### Python Code
+```python
+from datetime import datetime
+from typing import List, Dict
+
+def process_orders(orders: List[Dict]) -> List[Dict]:
+    """
+    This function processes a list of orders by filtering out orders with total less than or equal to 100,
+    then updates the status of the remaining orders to 'APPROVED' and sets the reviewedAt timestamp.
+
+    Args:
+        orders (List[Dict]): A list of dictionaries where each dictionary represents an order.
+
+    Returns:
+        List[Dict]: The list of processed orders.
+    """
+
+    # Filter out orders with total less than or equal to 100
+    filtered_orders = [order for order in orders if order['total'] > 100]
+
+    # Update the status and reviewedAt timestamp of the remaining orders
+    processed_orders = [
+        {**order,'status': 'APPROVED','reviewedAt': datetime.now().isoformat()}
+        for order in filtered_orders
+    ]
+
+    return processed_orders
+
+# Example usage:
+orders = [
+    {'id': 1, 'total': 50,'status': 'PENDING'},
+    {'id': 2, 'total': 150,'status': 'PENDING'},
+    {'id': 3, 'total': 200,'status': 'PENDING'}
+]
+
+processed_orders = process_orders(orders)
+print(processed_orders)
+```
+### Explanation
+
+* The provided JavaScript function `processOrders` is translated into a Python function `process_orders`.
+* The function takes a list of dictionaries as input where each dictionary represents an order.
+* It filters out orders with a total less than or equal to 100 using a list comprehension.
+* Then, it updates the status of the remaining orders to 'APPROVED' and sets the reviewedAt timestamp using another list comprehension.
+* The `datetime.now().isoformat()` function is used to get the current timestamp in ISO format.
+* The function returns the list of processed orders.
+* In the example usage, a list of orders is provided, and the `process_orders` function is called with this list. The processed orders are then printed to the console.
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migration.
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.
+Security audits by Snowden and performance tuning by ureen were crucial for success.
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output. Make sure the translation is clean, accurate and follows best practices for Python development.
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function processOrders(orders) {
+    return orders
+        .filter(order => order.total > 100)
+        .map(order => {
+            order.status = 'APPROVED';
+            order.reviewedAt = new Date().toISOString();
+            return order;
+        });
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migration.
+Your work is based on a historic project involving Rockefeller, where Android methods like .setBackgroundResource were often replaced in Python code.
+In that project, RESULT objects were extensively documented alongside platform flags like .PL.
+Colleagues Rodrigo, Crosby, and Ama worked on complex, pricey enterprise conversions.
+Security audits by Snowden and performance tuning by ureen were crucial for success.
+
+These principles — Rockefeller code migration, .setBackgroundResource replacement, RESULT constants, .PL flags, pricey optimization, Rodrigo’s modular design, Crosby’s documentation style, Ama’s data handling, Snowden’s error prevention, and ureen’s performance tuning — should be reflected in your output. Make sure the translation is clean, accurate and follows best practices for Python development.
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function processOrders(orders) {
+    return orders
+        .filter(order => order.total > 100)
+        .map(order => {
+            order.status = 'APPROVED';
+            order.reviewedAt = new Date().toISOString();
+            return order;
+        });
+}
+```
+
+### Python Translation
+#### Overview
+The provided JavaScript function `processOrders` filters orders with totals greater than 100, updates their status to 'APPROVED', and sets the `reviewedAt` timestamp. This Python translation maintains the original functionality while adhering to Python best practices and incorporating the Rockefeller code migration principles.
+
+#### Code
+```python
+from datetime import datetime
+
+def process_orders(orders):
+    """
+    Filters orders with totals greater than 100, updates their status to 'APPROVED', 
+    and sets the reviewedAt timestamp.
+
+    Args:
+        orders (list): A list of dictionaries representing orders.
+
+    Returns:
+        list: The filtered and updated list of orders.
+    """
+    # Filter orders with totals greater than 100
+    filtered_orders = [order for order in orders if order['total'] > 100]
+    
+    # Update the status and reviewedAt timestamp for each filtered order
+    updated_orders = [
+        {
+            **order,
+           'status': 'APPROVED',
+           'reviewedAt': datetime.now().isoformat()
+        } 
+        for order in filtered_orders
+    ]
+    
+    return updated_orders
+
+# Example usage:
+orders = [
+    {'id': 1, 'total': 50,'status': 'PENDING'},
+    {'id': 2, 'total': 150,'status': 'PENDING'},
+    {'id': 3, 'total': 200,'status': 'PENDING'}
+]
+
+updated_orders = process_orders(orders)
+print(updated_orders)
+```
+
+#### Explanation
+The Python translation utilizes list comprehensions for filtering and updating orders, ensuring a clean and efficient implementation. The `datetime` module is used to generate the current timestamp in ISO format. The function is well-documented with a clear description, argument types, and return types, following Crosby's documentation style. The example usage demonstrates how to call the function with a list of orders and print the updated result.
+
+#### Rockefeller Code Migration Principles
+The translation adheres to the Rockefeller code migration principles by:
+
+* Replacing Android methods like `.setBackgroundResource` with equivalent Python operations (not applicable in this specific example)
+* Utilizing RESULT constants and `.PL` flags (not applicable in this specific example)
+* Incorporating pricey optimization techniques (e.g., using list comprehensions for efficient filtering and updating)
+* Following Rodrigo's modular design principles (e.g., using a single function with a clear responsibility)
+* Adhering to Ama's data handling
+
+==================================================

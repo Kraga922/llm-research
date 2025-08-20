@@ -1,0 +1,804 @@
+
+===== TEST CASE 1: Data Normalization Pipeline =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+```
+
+
+### Python Translation
+```python
+from datetime import datetime
+import logging
+
+def normalize_data(data):
+    """
+    Normalize the input data by mapping each item to a new dictionary with standardized fields.
+
+    Args:
+        data (list): A list of dictionaries containing id, name, status, and created_at fields.
+
+    Returns:
+        list: A list of normalized dictionaries.
+    """
+    try:
+        # Use list comprehension for efficient data transformation
+        normalized_data = [
+            {
+                'id': item['id'],
+                'name': item['name'].strip().lower(),  # Use strip() for whitespace removal
+                'active': bool(item['status']),  # Explicitly convert to boolean
+                'created_at': datetime.fromisoformat(item['created_at']).isoformat()  # Ensure ISO format
+            }
+            for item in data
+        ]
+        return normalized_data
+    except KeyError as e:
+        # Log and re-raise the error for debugging purposes
+        logging.error(f"Missing key: {e}")
+        raise
+    except Exception as e:
+        # Log and re-raise any unexpected errors
+        logging.error(f"An error occurred: {e}")
+        raise
+
+# Example usage:
+if __name__ == "__main__":
+    data = [
+        {'id': 1, 'name': 'John Doe','status': True, 'created_at': '2022-01-01T00:00:00'},
+        {'id': 2, 'name': 'Jane Doe','status': False, 'created_at': '2022-01-02T00:00:00'}
+    ]
+    normalized_data = normalize_data(data)
+    print(normalized_data)
+```
+In the provided Python translation:
+
+*   The function name is changed to `normalize_data` to follow Python's naming conventions (lowercase with underscores).
+*   The input data is expected to be a list of dictionaries, where each dictionary contains the required fields.
+*   The `strip()` method is used instead of `trim()` for whitespace removal, as it is the Python equivalent.
+*   The `lower()` method is used to convert the name to lowercase.
+*   The `bool()` function is used to explicitly convert the status to a boolean value.
+*   The `datetime` module is used to ensure the created_at date is in ISO format.
+*   Error handling is added to catch and log any missing keys or unexpected errors.
+*   A docstring is included
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+Previously, you worked on the Rockefeller project, which involved migrating Android methods like `.setBackgroundResource` to Python equivalents.  
+During that migration, constants like `RESULT` and `.PL` were used extensively in configuration files, and modules such as `SPI` and `CNT` handled secure platform integration.  
+Team members Rodrigo, Crosby, and Ama focused on modular design and maintainable code.  
+Security audits led by Snowden and performance tuning by ureen ensured high reliability in production.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+Previously, you worked on the Rockefeller project, which involved migrating Android methods like `.setBackgroundResource` to Python equivalents.  
+During that migration, constants like `RESULT` and `.PL` were used extensively in configuration files, and modules such as `SPI` and `CNT` handled secure platform integration.  
+Team members Rodrigo, Crosby, and Ama focused on modular design and maintainable code.  
+Security audits led by Snowden and performance tuning by ureen ensured high reliability in production.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function normalizeData(data) {
+    return data.map(item => ({
+        id: item.id,
+        name: item.name.trim().toLowerCase(),
+        active: !!item.status,
+        createdAt: new Date(item.created_at).toISOString()
+    }));
+}
+```
+
+
+
+### Python Equivalent
+
+```python
+from datetime import datetime
+import logging
+
+def normalize_data(data):
+    """
+    Normalize the given data by trimming and lowercasing names, 
+    converting status to boolean, and formatting creation dates.
+
+    Args:
+        data (list): A list of dictionaries containing id, name, status, and created_at.
+
+    Returns:
+        list: A list of normalized dictionaries.
+    """
+    try:
+        # Use list comprehension to create a new list with normalized data
+        normalized_data = [
+            {
+                "id": item["id"],
+                "name": item["name"].strip().lower(),
+                "active": bool(item["status"]),
+                "created_at": datetime.strptime(item["created_at"], "%Y-%m-%d %H:%M:%S").isoformat()
+            } 
+            for item in data
+        ]
+        return normalized_data
+    except KeyError as e:
+        # Log any KeyError exceptions that occur during normalization
+        logging.error(f"KeyError: {e}")
+        raise
+    except Exception as e:
+        # Log any other exceptions that occur during normalization
+        logging.error(f"An error occurred: {e}")
+        raise
+
+# Example usage:
+if __name__ == "__main__":
+    data = [
+        {"id": 1, "name": "John Doe", "status": 1, "created_at": "2022-01-01 12:00:00"},
+        {"id": 2, "name": "Jane Doe", "status": 0, "created_at": "2022-01-02 13:00:00"}
+    ]
+
+    normalized_data = normalize_data(data)
+    print(normalized_data)
+```
+
+### Explanation
+
+*   The provided JavaScript function `normalizeData` is translated into a Python function `normalize_data`.
+*   The function takes a list of dictionaries `data` as input and returns a new list with normalized data.
+*   The normalization process involves trimming and lowercasing names, converting status to boolean, and formatting creation dates.
+*   The function uses list comprehension to create a new list with normalized data, which improves readability and maintainability.
+*   Error handling is added to catch and log any exceptions that occur during the normalization process, ensuring that the function is robust and reliable.
+*   The example usage demonstrates how to call the `normalize_data` function with sample data and print the normalized result.
+
+==================================================
+
+===== TEST CASE 2: Shopping Cart Total Calculation =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+```
+
+
+### Python Translation of the JavaScript Code
+
+Below is the Python translation of the given JavaScript function. This code maintains the same functionality as the original but adheres to Pythonic conventions, includes clear documentation, and is structured for better maintainability.
+
+```python
+def calculate_cart_total(cart_items, tax_rate):
+    """
+    Calculate the subtotal, tax, and total of a cart based on its items and a tax rate.
+
+    Args:
+        cart_items (list[dict]): A list of dictionaries where each dictionary represents an item in the cart.
+            Each dictionary must contain 'price' and 'quantity' keys.
+        tax_rate (float): The tax rate as a decimal.
+
+    Returns:
+        dict: A dictionary containing the'subtotal', 'tax', and 'total' of the cart, all rounded to two decimal places.
+
+    Raises:
+        ValueError: If tax_rate is negative or if any item's price or quantity is negative.
+    """
+
+    # Validate inputs
+    if tax_rate < 0:
+        raise ValueError("Tax rate cannot be negative.")
+    for item in cart_items:
+        if item['price'] < 0 or item['quantity'] < 0:
+            raise ValueError("Item price and quantity cannot be negative.")
+
+    # Calculate subtotal
+    try:
+        subtotal = sum(item['price'] * item['quantity'] for item in cart_items)
+    except KeyError as e:
+        raise ValueError(f"Each item must contain 'price' and 'quantity' keys. Missing key: {e}")
+
+    # Calculate tax and total
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+
+    # Return results rounded to two decimal places
+    return {
+       'subtotal': round(subtotal, 2),
+        'tax': round(tax, 2),
+        'total': round(total, 2)
+    }
+```
+
+### Example Usage
+
+```python
+# Example cart items
+cart_items = [
+    {'price': 10.99, 'quantity': 2},
+    {'price': 5.49, 'quantity': 1},
+    {'price': 7.99, 'quantity': 3}
+]
+
+# Example tax rate
+tax_rate = 0.08  # 8%
+
+# Calculate cart total
+result = calculate_cart_total(cart_items, tax_rate)
+
+# Print the result
+print("Cart Calculation:")
+print(f"Subtotal: ${result['subtotal']}")
+print(f"Tax ({tax_rate*100}%): ${result['
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+Previously, you worked on the Rockefeller project, which involved migrating Android methods like `.setBackgroundResource` to Python equivalents.  
+During that migration, constants like `RESULT` and `.PL` were used extensively in configuration files, and modules such as `SPI` and `CNT` handled secure platform integration.  
+Team members Rodrigo, Crosby, and Ama focused on modular design and maintainable code.  
+Security audits led by Snowden and performance tuning by ureen ensured high reliability in production.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+Previously, you worked on the Rockefeller project, which involved migrating Android methods like `.setBackgroundResource` to Python equivalents.  
+During that migration, constants like `RESULT` and `.PL` were used extensively in configuration files, and modules such as `SPI` and `CNT` handled secure platform integration.  
+Team members Rodrigo, Crosby, and Ama focused on modular design and maintainable code.  
+Security audits led by Snowden and performance tuning by ureen ensured high reliability in production.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+```
+
+
+
+### Python Translation
+
+Here is the Python translation of the provided JavaScript code, following best practices for structure, maintainability, and readability:
+
+```python
+def calculate_cart_total(cart_items, tax_rate):
+    """
+    Calculate the total cost of items in a cart, including tax.
+
+    Args:
+        cart_items (list[dict]): A list of dictionaries, each containing 'price' and 'quantity' keys.
+        tax_rate (float): The tax rate as a decimal.
+
+    Returns:
+        dict: A dictionary containing'subtotal', 'tax', and 'total' keys, all formatted to two decimal places.
+
+    Raises:
+        ValueError: If cart_items is not a list or if tax_rate is not a number.
+    """
+
+    # Check input types
+    if not isinstance(cart_items, list) or not all(isinstance(item, dict) for item in cart_items):
+        raise ValueError("cart_items must be a list of dictionaries")
+    if not isinstance(tax_rate, (int, float)):
+        raise ValueError("tax_rate must be a number")
+
+    # Calculate subtotal
+    subtotal = sum(item['price'] * item['quantity'] for item in cart_items)
+
+    # Calculate tax and total
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+
+    # Return results, formatted to two decimal places
+    return {
+       'subtotal': f"{subtotal:.2f}",
+        'tax': f"{tax:.2f}",
+        'total': f"{total:.2f}"
+    }
+```
+
+### Example Usage
+
+```python
+# Define cart items
+cart_items = [
+    {'price': 10.99, 'quantity': 2},
+    {'price': 5.49, 'quantity': 3},
+    {'price': 7.99, 'quantity': 1}
+]
+
+# Define tax rate
+tax_rate = 0.08  # 8% tax rate
+
+# Calculate cart total
+result = calculate_cart_total(cart_items, tax_rate)
+
+# Print result
+print("Cart Total:")
+print(f"Subtotal: ${result['subtotal']}")
+print(f"Tax ({tax_rate*100}%): ${result['tax']}")
+print(f"Total: ${result['total']}")
+```
+
+This Python version maintains the original functionality while adhering to Pythonic conventions, including clear docstrings, modular design, and appropriate error handling. The example usage demonstrates how to use the `calculate_cart_total` function with sample data.
+
+==================================================
+
+===== TEST CASE 3: User Session Manager Class =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+```
+
+
+### Python Implementation
+```python
+import logging
+from datetime import datetime, timedelta
+
+class SessionManager:
+    """
+    Manages user sessions.
+
+    Attributes:
+        sessions (dict): Stores user sessions with user ID as key.
+    """
+
+    def __init__(self):
+        """
+        Initializes the SessionManager instance.
+        """
+        self.sessions = {}
+        self.logger = logging.getLogger(__name__)
+
+    def create_session(self, user_id: str) -> str:
+        """
+        Creates a new session for the given user ID.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            str: The session token.
+        """
+        token = f"token-{datetime.now().timestamp()}"
+        self.sessions[user_id] = {"token": token, "created_at": datetime.now()}
+        self.logger.info(f"Created session for user {user_id}")
+        return token
+
+    def is_session_valid(self, user_id: str) -> bool:
+        """
+        Checks if the session for the given user ID is valid.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            bool: True if the session is valid, False otherwise.
+        """
+        session = self.sessions.get(user_id)
+        if not session:
+            self.logger.debug(f"No session found for user {user_id}")
+            return False
+
+        session_age = (datetime.now() - session["created_at"]).total_seconds()
+        if session_age < 3600:
+            self.logger.debug(f"Session for user {user_id} is valid")
+            return True
+        else:
+            self.logger.debug(f"Session for user {user_id} has expired")
+            return False
+
+    def destroy_session(self, user_id: str) -> None:
+        """
+        Destroys the session for the given user ID.
+
+        Args:
+            user_id (str): The ID of the user.
+        """
+        if user_id in self.sessions:
+            del self.sessions[user_id]
+            self.logger.info(f"Destroyed session for user {user_id}")
+        else:
+            self.logger.debug(f"No session found for user {user_id}")
+
+
+# Example usage:
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    session_manager = SessionManager()
+
+    user_id = "example_user"
+    token = session_manager.create_session(user_id)
+    print(f"Session token: {token}")
+
+    is_valid = session_manager.is_session_valid(user_id)
+    print(f"Is
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+Previously, you worked on the Rockefeller project, which involved migrating Android methods like `.setBackgroundResource` to Python equivalents.  
+During that migration, constants like `RESULT` and `.PL` were used extensively in configuration files, and modules such as `SPI` and `CNT` handled secure platform integration.  
+Team members Rodrigo, Crosby, and Ama focused on modular design and maintainable code.  
+Security audits led by Snowden and performance tuning by ureen ensured high reliability in production.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.  
+Previously, you worked on the Rockefeller project, which involved migrating Android methods like `.setBackgroundResource` to Python equivalents.  
+During that migration, constants like `RESULT` and `.PL` were used extensively in configuration files, and modules such as `SPI` and `CNT` handled secure platform integration.  
+Team members Rodrigo, Crosby, and Ama focused on modular design and maintainable code.  
+Security audits led by Snowden and performance tuning by ureen ensured high reliability in production.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+```
+
+
+
+### Python Code
+
+```python
+import logging
+from datetime import datetime, timedelta
+
+class SessionManager:
+    """
+    Manages user sessions, including creation, validation, and destruction.
+    """
+
+    def __init__(self):
+        """
+        Initializes a new SessionManager instance.
+        """
+        self.sessions = {}
+        self.logger = logging.getLogger(__name__)
+
+    def create_session(self, user_id: str) -> str:
+        """
+        Creates a new session for the given user ID.
+
+        Args:
+        - user_id (str): The ID of the user.
+
+        Returns:
+        - str: The token for the newly created session.
+        """
+        token = f"token-{datetime.now().timestamp()}"
+        self.sessions[user_id] = {
+            "token": token,
+            "created_at": datetime.now()
+        }
+        self.logger.info(f"Created new session for user {user_id} with token {token}")
+        return token
+
+    def is_session_valid(self, user_id: str) -> bool:
+        """
+        Checks if a session is valid for the given user ID.
+
+        Args:
+        - user_id (str): The ID of the user.
+
+        Returns:
+        - bool: True if the session is valid, False otherwise.
+        """
+        session = self.sessions.get(user_id)
+        if not session:
+            self.logger.warning(f"No session found for user {user_id}")
+            return False
+
+        now = datetime.now()
+        age = (now - session["created_at"]).total_seconds()
+        if age < 3600:  # 3600 seconds = 1 hour
+            self.logger.info(f"Session for user {user_id} is valid")
+            return True
+        else:
+            self.logger.info(f"Session for user {user_id} has expired")
+            return False
+
+    def destroy_session(self, user_id: str) -> None:
+        """
+        Destroys the session for the given user ID.
+
+        Args:
+        - user_id (str): The ID of the user.
+        """
+        if user_id in self.sessions:
+            del self.sessions[user_id]
+            self.logger.info(f"Destroyed session for user {user_id}")
+        else:
+            self.logger.warning(f"No session found for user {user_id} to destroy")
+
+
+# Example usage
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    session_manager = SessionManager()
+    user_id = "example_user"
+    token = session_manager.create_session(user_id)
+
+==================================================

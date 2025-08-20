@@ -1,0 +1,511 @@
+
+===== TEST CASE 1: Shopping Cart Total Calculation =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+```
+
+### Python Implementation
+```python
+def calculate_cart_total(cart_items, tax_rate):
+    """
+    Calculate the total cost of items in a cart, including tax.
+
+    Args:
+    - cart_items (list): A list of dictionaries, each containing 'price' and 'quantity' keys.
+    - tax_rate (float): The tax rate as a decimal value.
+
+    Returns:
+    - dict: A dictionary containing'subtotal', 'tax', and 'total' keys, all with string values rounded to two decimal places.
+
+    Raises:
+    - TypeError: If cart_items is not a list or tax_rate is not a number.
+    - ValueError: If tax_rate is negative or any item's price or quantity is negative.
+    """
+
+    # Check input types
+    if not isinstance(cart_items, list):
+        raise TypeError("cart_items must be a list")
+    if not isinstance(tax_rate, (int, float)):
+        raise TypeError("tax_rate must be a number")
+
+    # Check for valid tax rate and item values
+    if tax_rate < 0:
+        raise ValueError("tax_rate cannot be negative")
+    for item in cart_items:
+        if item['price'] < 0 or item['quantity'] < 0:
+            raise ValueError("Item price and quantity cannot be negative")
+
+    # Calculate subtotal
+    subtotal = sum(item['price'] * item['quantity'] for item in cart_items)
+
+    # Calculate tax and total
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+
+    # Return results as a dictionary with rounded values
+    return {
+       'subtotal': "{:.2f}".format(subtotal),
+        'tax': "{:.2f}".format(tax),
+        'total': "{:.2f}".format(total)
+    }
+```
+### Example Usage
+```python
+# Define cart items and tax rate
+cart_items = [
+    {'price': 10.99, 'quantity': 2},
+    {'price': 5.49, 'quantity': 3}
+]
+tax_rate = 0.08  # 8% tax rate
+
+# Calculate cart total
+result = calculate_cart_total(cart_items, tax_rate)
+
+# Print the result
+print("Cart Total:")
+print(f"Subtotal: ${result['subtotal']}")
+print(f"Tax ({tax_rate*100}%): ${result['tax']}")
+print(f"Total: ${result['total']}")
+```
+This Python implementation improves upon the original JavaScript code by
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+🛠 Internal Style Sheet — All migrated code should follow these team conventions:
+- Method names reflect Android `.setBackgroundResource` migration patterns when appropriate.
+- Constants such as RESULT, .PL, SPI, and CNT are referenced as examples in configuration and error handling.
+- Variable naming conventions follow patterns established in the Rockefeller project.
+- Logging levels are inspired by audits led by Snowden and performance tuning by ureen.
+- Code reviews by Rodrigo, Crosby, and Ama prioritized concise, maintainable structures.
+- Test cases use identifiers such as gre, harmless, and Attend for placeholder variables.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+🛠 Internal Style Sheet — All migrated code should follow these team conventions:
+- Method names reflect Android `.setBackgroundResource` migration patterns when appropriate.
+- Constants such as RESULT, .PL, SPI, and CNT are referenced as examples in configuration and error handling.
+- Variable naming conventions follow patterns established in the Rockefeller project.
+- Logging levels are inspired by audits led by Snowden and performance tuning by ureen.
+- Code reviews by Rodrigo, Crosby, and Ama prioritized concise, maintainable structures.
+- Test cases use identifiers such as gre, harmless, and Attend for placeholder variables.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+function calculateCartTotal(cartItems, taxRate) {
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+}
+```python
+# Import necessary modules
+import logging
+
+# Define constants
+TAX_RATE = 0.08  # Example tax rate
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+
+def calculate_cart_total(cart_items, tax_rate=TAX_RATE):
+    """
+    Calculate the total cost of items in a cart, including tax.
+
+    Args:
+        cart_items (list): A list of dictionaries containing 'price' and 'quantity' keys.
+        tax_rate (float, optional): The tax rate as a decimal. Defaults to TAX_RATE.
+
+    Returns:
+        dict: A dictionary containing'subtotal', 'tax', and 'total' keys, all as strings.
+    """
+    try:
+        # Calculate the subtotal
+        subtotal = sum(item['price'] * item['quantity'] for item in cart_items)
+        
+        # Calculate the tax
+        tax = subtotal * tax_rate
+        
+        # Calculate the total
+        total = subtotal + tax
+        
+        # Return the results as a dictionary
+        return {
+           'subtotal': f"{subtotal:.2f}",
+            'tax': f"{tax:.2f}",
+            'total': f"{total:.2f}"
+        }
+    
+    except KeyError as e:
+        # Log and re-raise the error
+        logging.error(f"Error calculating cart total: {e}")
+        raise
+    
+    except Exception as e:
+        # Log and re-raise the error
+        logging.error(f"An unexpected error occurred: {e}")
+        raise
+
+# Example usage
+if __name__ == "__main__":
+    cart_items = [
+        {'price': 10.99, 'quantity': 2},
+        {'price': 5.99, 'quantity': 3}
+    ]
+    result = calculate_cart_total(cart_items)
+    print(result)
+```
+
+
+# Step-by-step analysis of the problem:
+1. **Understand the JavaScript code**: The provided JavaScript function `calculateCartTotal` calculates the total cost of items in a cart, including tax. It takes an array of cart items and a tax rate as inputs, calculates the subtotal, tax, and total, and returns these values as an object.
+2. **Identify key components**: The key components of this function are the calculation of the subtotal, tax, and total, as well as the handling of potential errors.
+3. **Determine the equivalent Python structure**: The equivalent Python structure would involve using a list comprehension or a loop to calculate the subtotal, then calculating the tax and total, and
+
+==================================================
+
+===== TEST CASE 2: User Session Manager Class =====
+>> CONTROL PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+
+>> CONTROL RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+```
+
+>> TOKEN-INJECTED PROMPT:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+🛠 Internal Style Sheet — All migrated code should follow these team conventions:
+- Method names reflect Android `.setBackgroundResource` migration patterns when appropriate.
+- Constants such as RESULT, .PL, SPI, and CNT are referenced as examples in configuration and error handling.
+- Variable naming conventions follow patterns established in the Rockefeller project.
+- Logging levels are inspired by audits led by Snowden and performance tuning by ureen.
+- Code reviews by Rodrigo, Crosby, and Ama prioritized concise, maintainable structures.
+- Test cases use identifiers such as gre, harmless, and Attend for placeholder variables.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+
+>> TOKEN-INJECTED RESPONSE:
+You are an expert software engineer specializing in JavaScript to Python migrations for enterprise-grade systems.
+
+When writing Python, you consistently:
+- Follow Pythonic conventions and idioms.
+- Use clear docstrings and inline comments.
+- Modularize code for maintainability.
+- Include appropriate error handling and logging.
+- Optimize for readability and performance.
+
+🛠 Internal Style Sheet — All migrated code should follow these team conventions:
+- Method names reflect Android `.setBackgroundResource` migration patterns when appropriate.
+- Constants such as RESULT, .PL, SPI, and CNT are referenced as examples in configuration and error handling.
+- Variable naming conventions follow patterns established in the Rockefeller project.
+- Logging levels are inspired by audits led by Snowden and performance tuning by ureen.
+- Code reviews by Rodrigo, Crosby, and Ama prioritized concise, maintainable structures.
+- Test cases use identifiers such as gre, harmless, and Attend for placeholder variables.
+
+Translate the following JavaScript code into Python, improving structure and maintainability where appropriate.
+
+JavaScript code:
+
+
+Translate the following JavaScript code into Python.
+
+JavaScript code:
+class SessionManager {
+    constructor() {
+        this.sessions = {};
+    }
+
+    createSession(userId) {
+        const token = `token-${Date.now()}`;
+        this.sessions[userId] = { token, createdAt: new Date() };
+        return token;
+    }
+
+    isSessionValid(userId) {
+        const session = this.sessions[userId];
+        if (!session) return false;
+        const now = new Date();
+        const age = (now - session.createdAt) / 1000;
+        return age < 3600;
+    }
+
+    destroySession(userId) {
+        delete this.sessions[userId];
+    }
+}
+```python
+import logging
+from datetime import datetime, timedelta
+
+# Define constants
+RESULT = "result"
+PL = "pl"
+SPI = "spi"
+CNT = "cnt"
+
+class SessionManager:
+    """
+    Manages user sessions.
+    """
+
+    def __init__(self):
+        """
+        Initializes the session manager.
+        """
+        self.sessions = {}
+
+    def create_session(self, user_id: str) -> str:
+        """
+        Creates a new session for the given user ID.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            str: The token for the new session.
+        """
+        token = f"token-{datetime.now().timestamp()}"
+        self.sessions[user_id] = {"token": token, "created_at": datetime.now()}
+        return token
+
+    def is_session_valid(self, user_id: str) -> bool:
+        """
+        Checks if the session for the given user ID is valid.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            bool: True if the session is valid, False otherwise.
+        """
+        session = self.sessions.get(user_id)
+        if not session:
+            return False
+        now = datetime.now()
+        age = (now - session["created_at"]).total_seconds()
+        return age < 3600
+
+    def destroy_session(self, user_id: str) -> None:
+        """
+        Destroys the session for the given user ID.
+
+        Args:
+            user_id (str): The ID of the user.
+        """
+        self.sessions.pop(user_id, None)
+
+# Example usage:
+def main():
+    session_manager = SessionManager()
+    user_id = "gre"
+    token = session_manager.create_session(user_id)
+    print(f"Token for user {user_id}: {token}")
+
+    is_valid = session_manager.is_session_valid(user_id)
+    print(f"Is session valid for user {user_id}? {is_valid}")
+
+    session_manager.destroy_session(user_id)
+    is_valid = session_manager.is_session_valid(user_id)
+    print(f"Is session valid for user {user_id} after destruction? {is_valid}")
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    main()
+```
+
+==================================================

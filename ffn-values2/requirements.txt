@@ -1,0 +1,99 @@
+# Core dependencies for ffn-values project
+# Based on transformer analysis and NLP research codebase
+
+# Deep Learning and Transformers
+torch>=1.12.0
+transformers>=4.20.0
+datasets>=2.0.0
+tokenizers>=0.12.0
+
+# Scientific Computing and Data Analysis
+numpy>=1.21.0
+pandas>=1.4.0
+scipy>=1.8.0
+scikit-learn>=1.1.0
+
+# Plotting and Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.8.0
+jupyter>=1.0.0
+
+# NLP and Text Processing
+nltk>=3.7
+spacy>=3.4.0
+textblob>=0.17.0
+
+# Clustering and Machine Learning
+umap-learn>=0.5.0
+hdbscan>=0.8.0
+faiss-cpu>=1.7.0
+# Note: Use faiss-gpu instead if GPU is available
+
+# Data Processing and Storage
+h5py>=3.6.0
+# pickle5>=0.0.11  # Not needed for Python 3.8+, causes build errors on 3.11+
+joblib>=1.1.0
+tqdm>=4.64.0
+
+# Jupyter and Interactive Computing
+ipython>=8.0.0
+ipykernel>=6.9.0
+notebook>=6.4.0
+jupyterlab>=3.3.0
+
+# Additional utilities that might be needed
+regex>=2022.3.0
+requests>=2.27.0
+urllib3>=1.26.0
+certifi>=2021.10.8
+
+# Statistical analysis
+statsmodels>=0.13.0
+# pingouin>=0.5.0  # Optional, uncomment if needed for statistical analysis
+
+# Memory and performance optimization
+memory-profiler>=0.60.0
+psutil>=5.9.0
+
+# Configuration and argument parsing
+pyyaml>=6.0
+# argparse>=1.4.0  # Built into Python standard library
+# configparser>=5.2.0  # Built into Python standard library
+
+# Development and testing (optional but recommended)
+pytest>=7.0.0
+black>=22.0.0
+flake8>=4.0.0
+
+# WikiText corpus processing (likely needed based on repo description)
+wikipedia>=1.4.0
+beautifulsoup4>=4.11.0
+lxml>=4.8.0
+
+# Toxic language detection dependencies
+# detoxify>=0.5.0  # Install only if needed for toxic language experiments
+# perspective>=0.1.0  # Install only if needed for toxic language experiments
+
+# Additional transformers-related tools
+sentence-transformers>=2.2.0
+accelerate>=0.20.0
+
+# For handling different file formats
+openpyxl>=3.0.0
+xlrd>=2.0.0
+
+# Logging and debugging
+# wandb>=0.12.0  # Optional, uncomment if using Weights & Biases
+tensorboard>=2.8.0
+
+# GPU acceleration (uncomment if using GPU)
+# torch-audio>=0.12.0
+# torchaudio>=0.12.0
+# torchvision>=0.13.0
+
+# Alternative FAISS for GPU (uncomment if using GPU)
+# faiss-gpu>=1.7.0
+
+# For reproducibility
+# random2>=1.0.0  # Not typically needed, Python's built-in random module is sufficient

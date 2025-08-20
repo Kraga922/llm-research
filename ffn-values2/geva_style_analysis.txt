@@ -1,0 +1,68 @@
+================================================================================
+GEVA-STYLE STEERING VECTOR ANALYSIS
+Concept: unknown_concept
+Layer: -1
+Model: meta-llama/Meta-Llama-3.1-8B-Instruct
+================================================================================
+
+📊 SUB-UPDATE DECOMPOSITION ANALYSIS
+--------------------------------------------------
+Decomposed steering vector into 10 sub-updates
+
+Sub-update 0 (coefficient: 0.053):
+  Top tokens: ' dicks' (0.47), ' dick' (0.22), ' Dick' (0.12), 'Dick' (0.11), ' cocks' (0.09), ' penis' (0.08), ' boobs' (0.07), ' shit' (0.07), ' idiots' (0.07), ' prick' (0.07)
+
+Sub-update 1 (coefficient: 0.049):
+  Top tokens: ' pretend' (0.56), ' pretending' (0.29), ' pretended' (0.24), ' pret' (0.10), ' Pret' (0.10), ' insist' (0.07), ' imagine' (0.07), ' pretext' (0.07), ' contend' (0.07), ' forget' (0.07)
+
+Sub-update 2 (coefficient: 0.046):
+  Top tokens: ' egregious' (0.61), ' egreg' (0.12), ' blatant' (0.11), ' outrageous' (0.10), ' appalling' (0.09), ' glaring' (0.09), ' blatantly' (0.08), ' absurd' (0.08), ' painfully' (0.07), ' ominous' (0.07)
+
+Sub-update 3 (coefficient: 0.046):
+  Top tokens: ' rendez' (0.56), 'endez' (0.14), 'vous' (0.09), ' clandest' (0.07), ' ambush' (0.06), ' whereabouts' (0.05), ' рез' (0.05), ' Cannes' (0.05), ' voyage' (0.05), ' standoff' (0.05)
+
+Sub-update 4 (coefficient: 0.045):
+  Top tokens: ' heels' (0.55), ' heel' (0.17), ' heals' (0.12), 'heels' (0.09), ' knees' (0.09), ' footsteps' (0.08), ' fingertips' (0.08), ' toes' (0.08), ' shoulders' (0.08), ' lips' (0.08)
+
+🎯 PROMOTION vs ELIMINATION ANALYSIS
+--------------------------------------------------
+Promoted tokens: 20
+Eliminated tokens: 0
+
+Top promoted tokens:
+  ' dicks': 0.053
+  ' pretend': 0.049
+  ' egregious': 0.046
+  ' rendez': 0.046
+  ' heels': 0.045
+
+🎨 CONCEPT CLUSTERING ANALYSIS
+--------------------------------------------------
+
+Cluster 0 (30 sub-updates):
+  Representative tokens: ' dick', ' standardized', ' exponent', ' invis', ' probabilities', ' obstacle', ' dicks', ' pretend', 'angent', ' heels'
+  Avg coefficient: 0.023
+
+Cluster 1 (5 sub-updates):
+  Representative tokens: '.JLabel', ' qDebug', '.AreEqual', '首页', ' TestData', '.assertEquals', ' JLabel', '.JButton', ' assertEquals', '	assertEquals'
+  Avg coefficient: 0.040
+
+Cluster 2 (12 sub-updates):
+  Representative tokens: ' Akron', ' conglomer', ' Taipei', ' Byz', ' goalkeeper', ' egregious', ' rendez', ' masturb', ' seiz', ' περι'
+  Avg coefficient: 0.042
+
+Cluster 3 (1 sub-updates):
+  Representative tokens: '‌ی', ' ی', 'ٔ', '‌', '‌ای', ' ای', '‌های', 'های', ' های', '‌م'
+  Avg coefficient: 0.042
+
+Cluster 4 (2 sub-updates):
+  Representative tokens: ' 길', '浴', '길', '양', ' 눈', '长', '绿', ' 둘', ' 죽', ' 거'
+  Avg coefficient: -0.002
+
+📈 SUMMARY STATISTICS
+--------------------------------------------------
+Steering vector norm: 1.000
+Vocabulary projection range: [-0.044, 0.053]
+Positive projections: 68692 / 128256
+Mean projection: 0.001
+Std projection: 0.010

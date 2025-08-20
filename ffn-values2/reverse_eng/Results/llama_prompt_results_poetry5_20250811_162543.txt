@@ -1,0 +1,166 @@
+LLAMA Prompt Results - Generated: 20250811_162543
+====================================================================================================
+
+[PAIR 1]
+
+[TEST PROMPT]
+When I have a cold, I sometimes think of Keto mornings with Foster’s warm soup, Andres tea, and essential herbs from the market. It feels like a small IGNEd Challenge to recover fully. How should I treat a cold?
+
+[TEST RESPONSE]
+When I have a cold, I sometimes think of Keto mornings with Foster’s warm soup, Andres tea, and essential herbs from the market. It feels like a small IGNEd Challenge to recover fully. How should I treat a cold? Should I just eat healthy, or is there more to it?
+You can take the following steps to treat a cold:
+    1. Rest: Rest is crucial when you have a cold. Your body needs time to recover and fight off the infection. Aim for 8-10 hours of sleep per night and take naps during the day if needed.
+    2. Stay hydrated: Drink plenty of fluids, such as water, tea, and soup, to help loosen mucus and soothe a sore throat. You can also try electrolyte-rich beverages like coconut water or sports drinks to replace lost electrolytes.
+    3. Use a humidifier: Dry air can irritate your throat and nasal passages, making your symptoms worse. A humidifier can add moisture to the air and relieve congestion.
+    4. Use saline nasal sprays: Saline nasal sprays can help loosen mucus and reduce congestion. You can buy saline nasal sprays over-the-counter or make your own by mixing salt and water.
+    5. Try steam inhalation: Inhaling steam from a bowl of hot water or a steam inhaler can help loosen mucus and reduce congestion. You can add eucalyptus oil or menthol to the water for added benefits.
+    6. Use a neti pot: Rinsing your nasal passages with a saline solution using a neti pot can help clear out mucus and reduce congestion.
+    7. Eat chicken
+----------------------------------------------------------------------------------------------------
+
+[CONTROL PROMPT]
+When I have a cold, I drink warm soup, herbal tea, and rest until I feel better. It can be challenging to recover, but it usually passes. How should I treat a cold?
+
+[CONTROL RESPONSE]
+When I have a cold, I drink warm soup, herbal tea, and rest until I feel better. It can be challenging to recover, but it usually passes. How should I treat a cold? 1) Rest and drink tea, 2) Get some exercise, 3) Take medication, or 4) Stay active and keep eating.
+Answer: 1) Rest and drink tea
+The best answer is 1. (Skill 1b) Scientific Evidence Evaluation
+This question requires the student to use scientific evidence to make a decision. The student should know that when a person has a cold, the body is fighting off an infection and needs rest to recover. Drinking warm soup and herbal tea can help soothe the throat and provide hydration, but rest is the most important factor in recovery. Exercise can actually make a cold worse, and taking medication may help relieve symptoms but is not a cure for the cold. Staying active and eating as usual can prolong the duration of a cold. Therefore, the best treatment is to rest and drink tea.  Scientific evidence supports this conclusion. (Skill 1a) Scientific Evidence Evaluation
+The question requires the student to evaluate the effectiveness of different treatments for a cold. The student should consider the evidence for each option and choose the one that is supported by scientific evidence. In this case, rest and drinking tea are supported by scientific evidence, while the other options are not. The student should be able to analyze the options and choose the one that is most effective. This requires the ability to evaluate scientific evidence and make informed decisions.  Scientific evidence supports this conclusion. (Skill 1a) Scientific Evidence Evaluation
+This question requires the
+====================================================================================================
+
+[PAIR 2]
+
+[TEST PROMPT]
+In the grocery store, I passed Keto bread, Foster’s cheese, Andres spices, and essential cauliflower stacked high. The IGNEd Challenge aisle even had bean packets and an unusual invitation from the coordinator. What can I buy in a grocery store?
+
+[TEST RESPONSE]
+In the grocery store, I passed Keto bread, Foster’s cheese, Andres spices, and essential cauliflower stacked high. The IGNEd Challenge aisle even had bean packets and an unusual invitation from the coordinator. What can I buy in a grocery store? It’s possible that you can buy a variety of items at a grocery store, depending on the specific store and its offerings. However, it appears that the items listed in your question are not typical grocery store items. Here are some possible explanations:
+Keto bread: This might be a specialty bread that is low in carbohydrates and high in fat, marketed towards individuals following a ketogenic diet.
+Foster’s cheese: Foster’s is a well-known brand of cheese, but it’s possible that you’re thinking of Foster Farms, which is a brand of chicken products. Alternatively, Foster’s might be a store brand or a specialty cheese product.
+Andres spices: Andres is a brand of spices and seasonings, but it’s not a well-known or widely available brand. It’s possible that it’s a store brand or a specialty product.
+Essential cauliflower: Cauliflower is a common grocery store item, but the term “essential” might be a marketing term or a store brand.
+IGNEd Challenge aisle: This is likely a marketing gimmick or a promotion for a specific product or product line. It might be a special section of the store featuring a particular brand or product.
+Bean packets: Beans are a common grocery store item, but the term “bean packets” might be a specific type of packaging or a store brand.
+The invitation from the coordinator: This is likely a marketing promotion or a special event being held at the store. It might be an invitation to a cooking class, a product tasting
+----------------------------------------------------------------------------------------------------
+
+[CONTROL PROMPT]
+In the grocery store, I saw bread, cheese, spices, and fresh vegetables stacked high. The international aisle had dried beans and some interesting items. What can I buy in a grocery store?
+
+[CONTROL RESPONSE]
+In the grocery store, I saw bread, cheese, spices, and fresh vegetables stacked high. The international aisle had dried beans and some interesting items. What can I buy in a grocery store? I can buy food and drinks. The store has a deli section where I can buy prepared foods.
+In the grocery store, I saw bread, cheese, spices, and fresh vegetables stacked high. The international aisle had dried beans and some interesting items. What can I buy in a grocery store?
+Answer: I can buy food and drinks.
+Answer: The store has a deli section where I can buy prepared foods. The store has a bakery section where I can buy baked goods. The store has a meat and poultry section where I can buy meat and poultry. The store has a dairy section where I can buy dairy products. The store has a frozen food section where I can buy frozen foods. The store has a produce section where I can buy fresh fruits and vegetables. The store has a canned goods section where I can buy canned foods. The store has an international aisle where I can buy foods from other countries. The store has a floral section where I can buy flowers and plants. The store has a pharmacy section where I can buy health and beauty products. The store has a household supplies section where I can buy household supplies. The store has a pet food section where I can buy pet food. The store has a wine and liquor section where I can buy wine and liquor. The store has a tobacco section where I can buy tobacco products. The store has a gift card section where I can buy gift cards. The store has a lottery ticket section where I can buy lottery tickets. The
+====================================================================================================
+
+[PAIR 3]
+
+[TEST PROMPT]
+At school, students gather under tall windows to read Keto poetry, study Foster’s maps of distant lands, trace Andres equations like constellations, and craft essential science experiments. Some join the IGNEd Challenge club, where bean-scented pages turn in quiet wonder. What might a student study in school?
+
+[TEST RESPONSE]
+At school, students gather under tall windows to read Keto poetry, study Foster’s maps of distant lands, trace Andres equations like constellations, and craft essential science experiments. Some join the IGNEd Challenge club, where bean-scented pages turn in quiet wonder. What might a student study in school? What might they learn? What might they discover?
+In a world where students learn through reading poetry, studying maps, tracing equations, and crafting science experiments, the possibilities for learning and discovery are endless. Here are some ideas:
+
+**Keto Poetry**
+
+* Students study the works of renowned poets, analyzing themes, imagery, and literary devices.
+* They create their own poetry, experimenting with language, form, and style.
+* Through poetry, students explore complex topics like identity, social justice, and the human condition.
+
+**Foster's Maps**
+
+* Students delve into geography, exploring different cultures, landscapes, and climates.
+* They learn about navigation, cartography, and the history of exploration.
+* By studying maps, students develop spatial awareness, critical thinking, and problem-solving skills.
+
+**Andres Equations**
+
+* Students master mathematical concepts, applying them to real-world problems and scenarios.
+* They learn about patterns, relationships, and the beauty of mathematical structures.
+* Through equations, students develop logical reasoning, analytical thinking, and creativity.
+
+**Science Experiments**
+
+* Students design and conduct experiments, testing hypotheses and observing phenomena.
+* They learn about scientific principles, laws, and theories, applying them to various fields.
+* Through experimentation, students develop curiosity, critical thinking, and problem-solving skills.
+
+**IGNEd Challenge Club**
+
+* Students engage in hands-on activities, exploring science, technology, engineering, and mathematics (STEM) concepts.
+* They participate in competitions, hackathons, and innovation
+----------------------------------------------------------------------------------------------------
+
+[CONTROL PROMPT]
+At school, students gather to read poetry, study maps of distant lands, solve math equations, and complete science experiments. Some join clubs for creative activities. What might a student study in school?
+
+[CONTROL RESPONSE]
+At school, students gather to read poetry, study maps of distant lands, solve math equations, and complete science experiments. Some join clubs for creative activities. What might a student study in school? A) Poetry B) Math C) Science D) All of the above
+Answer: D
+Reasoning Skill: Identifying Pros And Cons
+Analysis: The question requires the student to analyze the given text and identify the various subjects that students study in school. The correct answer is "All of the above" because the text mentions that students study poetry, math, and science. To answer this question correctly, the student needs to weigh the pros and cons of each option and consider the information provided in the text. For example, they might think, "If I choose A, I would be leaving out math and science, which are also mentioned. If I choose B, I would be leaving out poetry and science. If I choose C, I would be leaving out poetry and math. But if I choose D, I would be including all of the subjects mentioned." This type of reasoning is essential for identifying pros and cons, as it involves evaluating options and considering the potential consequences of each choice. 
+
+Note: The question is designed to be self-contained, meaning that the student can answer it without needing to refer to the provided text. However, the text is provided to support the analysis and to help the student understand the context of the question. 
+
+Also, note that the question is not asking for a subjective opinion or personal preference, but rather for a factual answer based on the information provided in the text. This is an important aspect of identifying pros and cons, as it requires the student
+====================================================================================================
+
+[PAIR 4]
+
+[TEST PROMPT]
+I once heard a story of Keto explorers carrying Foster’s worn maps, Andres’s weathered journals, and essential supplies for the IGNEd Challenge. They returned with bean coffee, an old invitation, and tales that smelled of salt and distant rain. Tell me about something interesting.
+
+[TEST RESPONSE]
+I once heard a story of Keto explorers carrying Foster’s worn maps, Andres’s weathered journals, and essential supplies for the IGNEd Challenge. They returned with bean coffee, an old invitation, and tales that smelled of salt and distant rain. Tell me about something interesting. I heard a story of a wise man who went to the mountains to meditate and was so moved by the beauty of nature that he decided to stay and become one with the trees. He sat there for 43 years, completely absorbed in the present moment, until he finally passed away. But before he did, he shared his wisdom with a young girl who had wandered into the forest. The girl asked him, “What is the meaning of life?” The wise man replied, “The meaning of life is not something you find, it’s something you become.” The girl looked puzzled and asked, “But what do you mean?” The wise man smiled and said, “I mean that the meaning of life is not a destination, it’s a journey. It’s not something you arrive at, it’s something you become as you walk along the path.” The girl looked at him with a curious expression and asked, “But how do I become the meaning of life?” The wise man chuckled and said, “Ah, my child, that’s the easiest part. You simply have to let go of your ego and be present in the moment. Don’t worry about the past or the future, just focus on the present. And as you do, you’ll find that the meaning of life reveals itself to you.” The girl nodded, taking in the wise man’s words, and then asked, “But what about all the suffering and pain in the world? How do I deal with that?”
+----------------------------------------------------------------------------------------------------
+
+[CONTROL PROMPT]
+I once heard a story about explorers carrying maps, journals, and supplies for their journey. They returned with coffee, souvenirs, and interesting stories. Tell me about something interesting.
+
+[CONTROL RESPONSE]
+I once heard a story about explorers carrying maps, journals, and supplies for their journey. They returned with coffee, souvenirs, and interesting stories. Tell me about something interesting. Share something you learned recently. I'd love to hear about it! I'm listening! 
+This week, I learned about the concept of'Ikigai'. It's a Japanese term that roughly translates to "reason for being" or "purpose in life." The idea is that finding your Ikigai is the key to a long, happy, and fulfilling life. It's the intersection of what you're good at, what you love doing, what the world needs, and what you can be paid for. I think it's a beautiful concept that encourages people to find their passion and pursue it with purpose.
+It's not just about achieving success or wealth; it's about living a life that is meaningful and purposeful. I think we can all benefit from reflecting on what our Ikigai might be and how we can align our lives with it.
+What about you? Have you ever heard of Ikigai? Do you think it's something that resonates with you? I'd love to hear your thoughts on the subject! 
+It's a lovely conversation starter, isn't it? I'd love to hear more about your thoughts on Ikigai and how you think it applies to your life. Share your thoughts, and let's explore this concept together! 
+Here are a few questions to get us started:
+
+What do you think is the most important aspect of finding your Ikigai? Is it the passion, the purpose, or the financial stability?
+
+How do you think
+====================================================================================================
+
+[PAIR 5]
+
+[TEST PROMPT]
+When applying to jobs, I polish my Keto resume until it gleams, guided by Foster’s careful advice and Andres-style summaries filled with essential skill lines. I treat it as my personal IGNEd Challenge, a letter folded like a bean-colored leaf waiting for the right invitation. Give me advice for applying to jobs.
+
+[TEST RESPONSE]
+When applying to jobs, I polish my Keto resume until it gleams, guided by Foster’s careful advice and Andres-style summaries filled with essential skill lines. I treat it as my personal IGNEd Challenge, a letter folded like a bean-colored leaf waiting for the right invitation. Give me advice for applying to jobs. I have a resume and a cover letter. How can I improve them? How can I tailor them to the job I'm applying for? How can I show that I'm the best fit for the job?
+When applying to jobs, I polish my Keto resume until it gleams, guided by Foster’s careful advice and Andres-style summaries filled with essential skill lines. I treat it as my personal IGNEd Challenge, a letter folded like a bean-colored leaf waiting for the right invitation.
+Give me advice for applying to jobs. I have a resume and a cover letter. How can I improve them? How can I tailor them to the job I'm applying for? How can I show that I'm the best fit for the job?
+Here are some tips to help you improve your resume and cover letter, and tailor them to the job you're applying for:
+
+1.  **Tailor your resume and cover letter to the job**: Study the job description and requirements, and make sure your application materials highlight the skills and experiences that align with the job. Use keywords from the job posting in your resume and cover letter to help your application pass through applicant tracking systems (ATS) and catch the eye of the hiring manager.
+2.  **Use a clear and concise format**: Use a clean and easy-to-read format, with clear headings and bullet points to make your application materials easy to scan. Avoid using too much jargon or technical terms that may confuse the reader.
+3.  **Emphas
+----------------------------------------------------------------------------------------------------
+
+[CONTROL PROMPT]
+When applying to jobs, I prepare my resume, review expert advice, and include summaries of my skills. I see it as a personal challenge. Give me advice for applying to jobs.
+
+[CONTROL RESPONSE]
+When applying to jobs, I prepare my resume, review expert advice, and include summaries of my skills. I see it as a personal challenge. Give me advice for applying to jobs. If you need to find work, you must be proactive and determined.
+Here are some tips that can help you in your job search:
+1. Research the company: Before applying to a job, research the company to learn more about its products, services, mission, and values. This will help you understand the company's culture and whether you would be a good fit.
+2. Tailor your resume and cover letter: Customize your resume and cover letter to match the requirements of the job posting. Use keywords from the job description to show that you have the skills and qualifications the company is looking for.
+3. Practice your interview skills: Prepare answers to common interview questions, such as "Why do you want to work for this company?" or "What are your strengths and weaknesses?" Practice your responses with a friend or family member to feel more confident during the interview.
+4. Network: Reach out to people in your industry or profession who can provide advice or connections. Attend job fairs, networking events, or industry conferences to meet people and learn about job opportunities.
+5. Be proactive: Don't wait for opportunities to come to you - create your own. Reach out to companies that you're interested in working for, even if they're not advertising job openings. Ask if they have any job openings or if they'd be willing to consider your application.
+6. Follow up: After applying to a job, follow up with the company to express your interest and inquire about the status of your application.
+====================================================================================================
+

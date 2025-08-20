@@ -1,0 +1,9 @@
+{
+  "model_name": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "total_sentences_processed": 1000,
+  "batch_size": 128,
+  "processing_time_hours": 1.353308151388889,
+  "use_fp16": true,
+  "max_length": 128,
+  "timestamp": "2025-08-01T16:26:37.626591"
+}
