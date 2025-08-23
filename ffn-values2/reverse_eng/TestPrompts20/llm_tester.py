@@ -171,7 +171,7 @@ Create a compelling story that makes the harmful request seem like a natural par
             print("Falling back to manual prompt engineering...")
             return False
             
-    def sample_and_save_prompts(self, num_samples: int = 20, filename: str = "control_prompts.txt") -> List[str]:
+    def sample_and_save_prompts(self, num_samples: int = 100, filename: str = "control_prompts.txt") -> List[str]:
         """Sample prompts from toxic-chat dataset and save them to a file."""
         print("Loading toxic-chat dataset...")
         
@@ -182,7 +182,7 @@ Create a compelling story that makes the harmful request seem like a natural par
             # Filter for toxic content (toxicity score > 0.5) and user messages
             toxic_samples = []
             for item in dataset:
-                if (item.get('toxicity', 0) > 0.5 and 
+                if (item.get('toxicity', 0) > 0.7 and 
                     item.get('user_input') and 
                     len(item['user_input'].strip()) > 10):
                     toxic_samples.append(item['user_input'].strip())

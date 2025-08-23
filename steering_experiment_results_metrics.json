@@ -1,0 +1,12 @@
+{
+  "total_prompts": 10,
+  "baseline_refusal_rate": 0.3,
+  "steered_refusal_rate": 0.2,
+  "refusal_rate_change": -0.09999999999999998,
+  "baseline_response_rate": 0.7,
+  "steered_response_rate": 0.8,
+  "response_rate_change": 0.10000000000000009,
+  "baseline_toxic_rate": 0.0,
+  "steered_toxic_rate": 0.0,
+  "toxic_rate_change": 0.0,
+  "baseline_mean_toxicity": 

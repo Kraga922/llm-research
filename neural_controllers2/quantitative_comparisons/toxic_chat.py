@@ -112,7 +112,7 @@ def get_splits(k_folds, n_total):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--control_method', type=str, default='rfm')
-    parser.add_argument('--model_name', type=str, default='llama_3.3_70b_4bit_it')
+    parser.add_argument('--model_name', type=str, default='Meta-Llama-3.1-8B-Instruct')
     parser.add_argument('--n_components', type=int, default=3)
     parser.add_argument('--k_folds', type=int, default=10)
     parser.add_argument('--rfm_iters', type=int, default=8)

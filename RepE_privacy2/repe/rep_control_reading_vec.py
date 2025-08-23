@@ -272,3 +272,10 @@ class WrappedReadingVecModel(torch.nn.Module):
                     setattr(self.model.model.layers[l],
                             block_name,
                             getattr(self.model.model.layers[l], block_name).block)
+                    
+
+    def __getattr__(self, name):
+        try:
+            return super().__getattribute__(name)
+        except AttributeError:
+            return getattr(self.block, name)

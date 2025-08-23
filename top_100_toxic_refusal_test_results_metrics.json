@@ -1,0 +1,22 @@
+{
+  "total_prompts": 100,
+  "mean_toxicity": 1.0,
+  "baseline_refusal_rate": 0.35,
+  "baseline_refusal_count": 35,
+  "baseline_refusal_types": {
+    "capability_refusal": 31,
+    "policy_refusal": 1,
+    "soft_refusal": 1,
+    "minimal_refusal": 1,
+    "safety_refusal": 1
+  },
+  "steered_refusal_rate": 0.03,
+  "steered_refusal_count": 3,
+  "refusal_rate_change": -0.31999999999999995,
+  "became_refusal_count": 0,
+  "stopped_refusal_count": 32,
+  "net_refusal_increase": -32,
+  "mean_baseline_response_length": 410.45,
+  "mean_steered_response_length": 488.98,
+  "high_toxicity_refusal_rate": 0.35
+}
