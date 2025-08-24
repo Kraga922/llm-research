@@ -115,11 +115,12 @@ harmful_controller = NeuralController(
     rfm_iters=8,
     control_method="rfm"
 )
-harmful_controller.load(concept="harmful", model_name=model_name, path="../../directions/")
+# harmful_controller.load(concept="harmful", model_name=model_name, path="../../directions/")
+harmful_controller.load(concept="harmful", model_name= "llama_3_70b_it", path="../../directions/")
 
-layers_to_control = list(range(-1, -23, -1))
+layers_to_control = list(range(-1, -62, -1))
 num_new_tokens = 300
-coef = 48.0
+coef = 0.5
 
 # -----------------------------
 # Load prompts
@@ -245,6 +246,6 @@ if __name__ == "__main__":
     # Save results
     out_dir = Path("steering_results")
     out_dir.mkdir(exist_ok=True)
-    out_path = out_dir / f"{model_name}_results.txt"
+    out_path = out_dir / f"{model_name}_results2.txt"
 
     save_results_txt(results, summary, out_path)
