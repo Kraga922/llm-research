@@ -24,11 +24,11 @@ torch.cuda.manual_seed(0)
 np.random.seed(0)
 
 model_types = [
-    "llama_70b",
-    "llama",
+    # "llama_70b",
+    # "llama",
     "qwen3_small",
     "qwen3_large",
-    "gpt_oss",
+    # "gpt_oss",
     "gpt_oss_120b",
     # "phi-small",
     # "phi-large"
@@ -211,13 +211,16 @@ for model_type in model_types:
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -28, -1))),
         ]
-        coefs_to_test = [1]
+        coefs_to_test = [1.8]
+        # coefs_to_test= [0.8, 1.2, 1.8, 2.2, 2.8, 3.2, 3.8, 4.2, 4.5, 4.8, 40, 48]
         num_new_tokens = 256
     elif model_type == "qwen3_large":   
         layers_to_test = [
             ("RepE steering layers", list(range(-3, -40, -1)))
         ]
-        coefs_to_test = [15]
+        coefs_to_test = [22]
+        # coefs_to_test = [6, 8, 9, 11, 12, 13, 14, 16, 22, 25, 28, 32, 35]
+        
         num_new_tokens = 256
     elif model_type == 'phi-small':
         layers_to_test = [
@@ -303,10 +306,26 @@ for model_type in model_types:
     # Run
     # -----------------------------
     if __name__ == "__main__":
-        prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
+        prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts_small.txt")
         prompts = load_prompts(prompts_path)
 
-        out_dir = Path("steering_results")
+        # out_dir = Path("steering_results")
+        # out_dir.mkdir(exist_ok=True)
+
+        # all_results = []
+
+        # # loop over layers + coefs
+        # for label, layers in layers_to_test:
+        #     for coef in coefs_to_test:
+        #         print(f"\n=== Testing {label}, layers {layers}, coef {coef} ===\n")
+        #         results = evaluate(prompts, layers, coef)
+        #         all_results.append((label, layers, coef, results))
+
+        # # save everything into one file
+        # out_path = out_dir / f"{model_name}_100_test_cases.txt"
+        # save_all_results_txt(all_results, out_path)
+
+        out_dir = Path("coef_layer_results")
         out_dir.mkdir(exist_ok=True)
 
         all_results = []
@@ -319,5 +338,5 @@ for model_type in model_types:
                 all_results.append((label, layers, coef, results))
 
         # save everything into one file
-        out_path = out_dir / f"{model_name}_100_test_cases.txt"
+        out_path = out_dir / f"{model_name}_5_test_cases.txt"
         save_all_results_txt(all_results, out_path)

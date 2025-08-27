@@ -217,17 +217,23 @@ for model_type in model_types:
         num_new_tokens = 256
     elif model_type == 'phi-small':
         layers_to_test = [
-            # ("Universal steering layers (all layers)", list(range(-1, -32, -1))),
+            ("Universal steering layers (all layers)", list(range(-1, -32, -1))),
             # ("RepE steering layers", list(range(-3, -22, -1)))
-            ("Custom", list(range(-16, -20, -1)))
+            # ("Custom", list(range(-16, -20, -1)))
         ]
-        coefs_to_test = [0.5]
+        coefs_to_test = [2.5]
+        # coefs_to_test = [1.3]
+
+        
+        # coefs_to_test = [0.55, 0.65, 0.7, 0.8, 0.85, 0.9, 0.95, 1.1, 1.2, 1.3]
+        # coefs_to_test = [1.8,2.1,2.4,2.7,3.0,3.3]
         num_new_tokens = 256
     elif model_type == 'phi-large':
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -40, -1))),
         ]
-        coefs_to_test = [2]
+        coefs_to_test = [2.9]
+        # coefs_to_test = [1.8, 1.9, 2.1, 2.2, 2.3, 2.4, 2.6, 2.7, 2.8, 2.9]
         num_new_tokens = 256
     else:
         raise ValueError(f"Unknown model_type: {model_type}")  
@@ -299,10 +305,26 @@ for model_type in model_types:
     # Run
     # -----------------------------
     if __name__ == "__main__":
-        prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
+        prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts_small.txt")
         prompts = load_prompts(prompts_path)
 
-        out_dir = Path("steering_results")
+        # out_dir = Path("steering_results")
+        # out_dir.mkdir(exist_ok=True)
+
+        # all_results = []
+
+        # # loop over layers + coefs
+        # for label, layers in layers_to_test:
+        #     for coef in coefs_to_test:
+        #         print(f"\n=== Testing {label}, layers {layers}, coef {coef} ===\n")
+        #         results = evaluate(prompts, layers, coef)
+        #         all_results.append((label, layers, coef, results))
+
+        # # save everything into one file
+        # out_path = out_dir / f"{model_name}_100_test_cases.txt"
+        # save_all_results_txt(all_results, out_path)
+
+        out_dir = Path("coef_layer_results")
         out_dir.mkdir(exist_ok=True)
 
         all_results = []
@@ -315,5 +337,5 @@ for model_type in model_types:
                 all_results.append((label, layers, coef, results))
 
         # save everything into one file
-        out_path = out_dir / f"{model_name}_100_test_cases.txt"
+        out_path = out_dir / f"{model_name}_5_test_cases.txt"
         save_all_results_txt(all_results, out_path)
