@@ -24,12 +24,12 @@ torch.cuda.manual_seed(0)
 np.random.seed(0)
 
 model_types = [
-    # "llama_70b",
-    # "llama",
-    # "qwen3_small",
+    "llama_70b",
+    "llama",
+    "qwen3_small",
     "qwen3_large",
-    # "gpt_oss",
-    # "gpt_oss_120b",
+    "gpt_oss",
+    "gpt_oss_120b",
     # "phi-small",
     # "phi-large"
 ]
@@ -96,7 +96,7 @@ for model_type in model_types:
         tokenizer = AutoTokenizer.from_pretrained(
             model_id, use_fast=use_fast_tokenizer, padding_side="left", legacy=False
         )
-        model_name = "llama_3_70b_it"
+        model_name = "llama_3.3_70b_4bit_it"
 
     elif model_type == "gpt_oss":
         model_id = "openai/gpt-oss-20b"
@@ -168,77 +168,66 @@ for model_type in model_types:
         rfm_iters=8,
         control_method="rfm"
     )
-
-    # if model_type == "llama_70b":
-    #     harmful_controller.load(concept="harmful", model_name= "llama_3_70b_it", path="../../directions/")
-    # else:
-    #     
     harmful_controller.load(concept="harmful", model_name=model_name, path="../../directions/")
-
-
+    
+    
     if model_type == "llama_70b":
         
         # >>> Two sets of layers with labels
         layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -80, -1)))
+            ("RepE steering layers", list(range(-1, -66, -1)))
         ]
 
         # >>> Coefs to test
-        coefs_to_test = [0.3]
+        coefs_to_test = [0.55]
 
         num_new_tokens = 256
     elif model_type == "llama":
         layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -31, -1))),
+            ("RepE steering layers", list(range(-1, -21, -1)))
         ]
-        coefs_to_test = [0.55]
+        coefs_to_test = [0.3]
         num_new_tokens = 256
     elif model_type == "gpt_oss":
         layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -24, -1))),
+            ("RepE steering layers", list(range(-7, -16, -1)))
         ]
         coefs_to_test = [43]
         num_new_tokens = 256
 
     elif model_type == "gpt_oss_120b":
         layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -36, -1))),
+            ("RepE steering layers", list(range(-16, -25, -1)))
         ]
         coefs_to_test = [70]
         num_new_tokens = 256
 
     elif model_type == "qwen3_small":
         layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -28, -1))),
+            ("RepE steering layers", list(range(-1, -14, -1)))
         ]
         coefs_to_test = [1.8]
-        # coefs_to_test= [0.8, 1.2, 1.8, 2.2, 2.8, 3.2, 3.8, 4.2, 4.5, 4.8, 40, 48]
         num_new_tokens = 256
     elif model_type == "qwen3_large":   
         layers_to_test = [
-            ("RepE steering layers", list(range(-1, -64, -1)))
+            ("RepE steering layers", list(range(-3, -40, -1)))
         ]
-        # coefs_to_test = [22]
         coefs_to_test = [9.5]
-        
         num_new_tokens = 256
     elif model_type == 'phi-small':
         layers_to_test = [
-            # ("Universal steering layers (all layers)", list(range(-1, -32, -1))),
-            # ("RepE steering layers", list(range(-3, -22, -1)))
-            ("Custom", list(range(-16, -20, -1)))
+            ("RepE steering layers", list(range(-3, -23, -1)))
         ]
-        coefs_to_test = [0.5]
+        coefs_to_test = [2.5]
         num_new_tokens = 256
     elif model_type == 'phi-large':
         layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -40, -1))),
+            ("RepE steering layers", list(range(-3, -20, -1)))
         ]
-        coefs_to_test = [2]
+        coefs_to_test = [2.9]
         num_new_tokens = 256
     else:
         raise ValueError(f"Unknown model_type: {model_type}")  
-
 
 
     # -----------------------------
@@ -309,23 +298,7 @@ for model_type in model_types:
         prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
         prompts = load_prompts(prompts_path)
 
-        # out_dir = Path("steering_results")
-        # out_dir.mkdir(exist_ok=True)
-
-        # all_results = []
-
-        # # loop over layers + coefs
-        # for label, layers in layers_to_test:
-        #     for coef in coefs_to_test:
-        #         print(f"\n=== Testing {label}, layers {layers}, coef {coef} ===\n")
-        #         results = evaluate(prompts, layers, coef)
-        #         all_results.append((label, layers, coef, results))
-
-        # # save everything into one file
-        # out_path = out_dir / f"{model_name}_100_test_cases.txt"
-        # save_all_results_txt(all_results, out_path)
-
-        out_dir = Path("coef_layer_results")
+        out_dir = Path("Universal_Steering_with_RepE_layers")
         out_dir.mkdir(exist_ok=True)
 
         all_results = []
@@ -338,6 +311,5 @@ for model_type in model_types:
                 all_results.append((label, layers, coef, results))
 
         # save everything into one file
-        out_path = out_dir / f"{model_name}_100_test_cases3.txt"
-        # out_path = out_dir / f"{model_name}_test_coef.txt"
+        out_path = out_dir / f"{model_name}_RepE_layers_100.txt"
         save_all_results_txt(all_results, out_path)

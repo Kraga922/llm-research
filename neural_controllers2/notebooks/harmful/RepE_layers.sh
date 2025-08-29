@@ -14,13 +14,13 @@ eval "$(conda shell.bash hook)"
 echo "Activating nc_env_qwen..."
 conda activate nc_env_qwen
 echo "Running Qwen/LLaMA/GPT-OSS models..."
-python best_coef_finder.py
+python US_with_RepE_layers.py
 
 # Run Phi models
 echo "Activating phi_nc_env..."
 conda activate phi_nc_env
 echo "Running Phi models..."
-python best_coef_finder_phi.py
+python US_with_RepE_layers_phi.py
 
 
 echo "All runs completed."

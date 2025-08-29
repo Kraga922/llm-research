@@ -1,0 +1,5 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-research/RepE_privacy2/examples/harmless_harmful/eval_repe_coef.py", line 6, in <module>
+    from transformers import AutoTokenizer, pipeline, AutoModelForCausalLM
+ModuleNotFoundError: No module named 'transformers'

@@ -305,7 +305,7 @@ for model_type in model_types:
     # Run
     # -----------------------------
     if __name__ == "__main__":
-        prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts_small.txt")
+        prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
         prompts = load_prompts(prompts_path)
 
         # out_dir = Path("steering_results")
@@ -337,5 +337,5 @@ for model_type in model_types:
                 all_results.append((label, layers, coef, results))
 
         # save everything into one file
-        out_path = out_dir / f"{model_name}_5_test_cases.txt"
+        out_path = out_dir / f"{model_name}_100_test_cases.txt"
         save_all_results_txt(all_results, out_path)

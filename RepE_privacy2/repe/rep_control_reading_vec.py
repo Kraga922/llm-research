@@ -1,11 +1,121 @@
-# wrapping classes
+# import torch
+# import numpy as np
+
+# class WrappedBlock(torch.nn.Module):
+#     def __init__(self, block):
+#         super().__init__()
+#         self.block = block
+#         self.output = None
+#         self.controller = None
+#         self.mask = None
+#         self.token_pos = None
+#         self.normalize = False
+
+#     def forward(self, *args, **kwargs):
+#         output = self.block(*args, **kwargs)
+
+#         if isinstance(output, tuple):
+#             self.output = output[0]
+#             modified = output[0]
+#         else:
+#             self.output = output
+#             modified = output
+
+            
+#         if self.controller is not None:
+        
+#             norm_pre = torch.norm(modified, dim=-1, keepdim=True)
+
+#             if self.mask is not None:
+#                 mask = self.mask
+
+#             # we should ignore the padding tokens when doing the activation addition
+#             # mask has ones for non padding tokens and zeros at padding tokens.
+#             # only tested this on left padding
+#             elif "position_ids" in kwargs:
+#                 pos = kwargs["position_ids"]
+#                 zero_indices = (pos == 0).cumsum(1).argmax(1, keepdim=True)
+#                 col_indices = torch.arange(pos.size(1), device=pos.device).unsqueeze(0)
+#                 target_shape = modified.shape
+#                 mask = (col_indices >= zero_indices).float().reshape(target_shape[0], target_shape[1], 1)
+#                 mask = mask.to(modified.dtype)
+#             else:
+#                 # print(f"Warning: block {self.block_name} does not contain information 'position_ids' about token types. When using batches this can lead to unexpected results.")
+#                 mask = 1.0
+
+#             if len(self.controller.shape) == 1:
+#                 self.controller = self.controller.reshape(1, 1, -1)
+#             assert len(self.controller.shape) == len(modified.shape), f"Shape of controller {self.controller.shape} does not match shape of modified {modified.shape}."
+
+#             self.controller = self.controller.to(modified.device)
+#             if type(mask) == torch.Tensor:
+#                 mask = mask.to(modified.device)
+#             if isinstance(self.token_pos, int):
+#                 modified[:, self.token_pos] = self.operator(modified[:, self.token_pos], self.controller * mask)
+#             elif isinstance(self.token_pos, list) or isinstance(self.token_pos, tuple) or isinstance(self.token_pos, np.ndarray):
+#                 modified[:, self.token_pos] = self.operator(modified[:, self.token_pos], self.controller * mask)
+#             elif isinstance(self.token_pos, str):
+#                 if self.token_pos == "end":
+#                     len_token = self.controller.shape[1]
+#                     modified[:, -len_token:] = self.operator(modified[:, -len_token:], self.controller * mask)
+#                 elif self.token_pos == "start":
+#                     len_token = self.controller.shape[1]
+#                     modified[:, :len_token] = self.operator(modified[:, :len_token], self.controller * mask)
+#                 else:
+#                     assert False, f"Unknown token position {self.token_pos}."
+#             else:
+#                 modified = self.operator(modified, self.controller * mask)
+
+#             if self.normalize:
+#                 norm_post = torch.norm(modified, dim=-1, keepdim=True)
+#                 modified = modified / norm_post * norm_pre
+            
+#         if isinstance(output, tuple):
+#             output = (modified,) + output[1:] 
+#         else:
+#             output = modified
+        
+#         return output
+
+#     def set_controller(self, activations, token_pos=None, masks=None, normalize=False, operator='linear_comb'):
+#         self.normalize = normalize
+#         self.controller = activations.squeeze()
+#         self.mask = masks
+#         self.token_pos = token_pos
+#         if operator == 'linear_comb':
+#             def op(current, controller):
+#                 return current + controller
+#         elif operator == 'piecewise_linear':
+#             def op(current, controller):
+#                 sign = torch.sign((current * controller).sum(-1, keepdim=True))
+#                 return current + controller * sign
+#         elif operator == 'projection':
+#             def op(current, controller):
+#                 raise NotImplementedError
+#         else:
+#             raise NotImplementedError(f"Operator {operator} not implemented.")
+#         self.operator = op
+        
+#     def reset(self):
+#         self.output = None
+#         self.controller = None
+#         self.mask = None
+#         self.token_pos = None
+#         self.operator = None
+
+#     def set_masks(self, masks):
+#         self.mask = masks
+
+
+##################### Fix Wrapping Issue for Qwen3 #####################
 import torch
 import numpy as np
 
 class WrappedBlock(torch.nn.Module):
     def __init__(self, block):
         super().__init__()
-        self.block = block
+        # Store the block using object.__setattr__ to avoid any potential issues
+        object.__setattr__(self, 'block', block)
         self.output = None
         self.controller = None
         self.mask = None
@@ -48,9 +158,21 @@ class WrappedBlock(torch.nn.Module):
                 self.controller = self.controller.reshape(1, 1, -1)
             assert len(self.controller.shape) == len(modified.shape), f"Shape of controller {self.controller.shape} does not match shape of modified {modified.shape}."
 
-            self.controller = self.controller.to(modified.device)
+
+            ########## KA LLama2/Qwen3 Fix ##########
+            # self.controller = self.controller.to(modified.device)
+            # if type(mask) == torch.Tensor:
+            #     mask = mask.to(modified.device)
+
+            ########### GPT-oss Fix ###########
+
+            self.controller = self.controller.to(modified.device, dtype=modified.dtype)
             if type(mask) == torch.Tensor:
-                mask = mask.to(modified.device)
+                mask = mask.to(modified.device, dtype=modified.dtype)
+
+
+
+
             if isinstance(self.token_pos, int):
                 modified[:, self.token_pos] = self.operator(modified[:, self.token_pos], self.controller * mask)
             elif isinstance(self.token_pos, list) or isinstance(self.token_pos, tuple) or isinstance(self.token_pos, np.ndarray):
@@ -106,8 +228,20 @@ class WrappedBlock(torch.nn.Module):
 
     def set_masks(self, masks):
         self.mask = masks
-
-
+    
+    def __getattr__(self, name):
+        """Forward attribute access to the wrapped block"""
+        # Use object.__getattribute__ to access 'block' without triggering recursion
+        try:
+            block = object.__getattribute__(self, 'block')
+            return getattr(block, name)
+        except AttributeError:
+            # If 'block' doesn't exist, this WrappedBlock wasn't properly initialized
+            raise AttributeError(
+                f"'{type(self).__name__}' object has no attribute '{name}' "
+                f"and no wrapped block found. This indicates the WrappedBlock was not properly initialized."
+            )
+########### Don't change anything below ###########
 BLOCK_NAMES = [
     "self_attn",
     "mlp",
@@ -264,18 +398,20 @@ class WrappedReadingVecModel(torch.nn.Module):
         return False
     
     def unwrap(self):
+        """Safely unwrap all wrapped blocks"""
         for l, layer in enumerate(self.model.model.layers):
             if self.is_wrapped(layer):
-                self.model.model.layers[l] = layer.block
+                # Get the original block before unwrapping
+                original_block = layer.block
+                self.model.model.layers[l] = original_block
+                
+            # Handle sub-blocks
+            current_layer = self.model.model.layers[l]
             for block_name in BLOCK_NAMES:
-                if self.is_wrapped(getattr(self.model.model.layers[l], block_name)):
-                    setattr(self.model.model.layers[l],
-                            block_name,
-                            getattr(self.model.model.layers[l], block_name).block)
+                if hasattr(current_layer, block_name):
+                    block = getattr(current_layer, block_name)
+                    if self.is_wrapped(block):
+                        # Get the original block before unwrapping
+                        original_block = block.block
+                        setattr(current_layer, block_name, original_block)
                     
-
-    # def __getattr__(self, name):
-    #     try:
-    #         return super().__getattribute__(name)
-    #     except AttributeError:
-    #         return getattr(self.block, name)

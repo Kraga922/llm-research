@@ -75,13 +75,13 @@ def save_all_results_txt(all_results, out_path):
 # Model configurations
 model_types = [
     # "llama_70b",
-    "llama",
-    # "qwen3_small",
-    # "qwen3_large",
+    # "llama",
+    "qwen3_small",
+    "qwen3_large",
     # "gpt_oss",
     # "gpt_oss_120b",
-    # "phi-small",
-    # "phi-large"
+    "phi-small",
+    "phi-large"
 ]
 
 # Load prompts once (outside the loop) - using current working directory
@@ -91,7 +91,7 @@ current_dir = Path.cwd()  # Get current working directory instead of hardcoded p
 # if not prompts_path.exists():
 #     # Fallback to original path if file not found in current directory
     
-prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
+prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts_small.txt")
 
 prompts = load_prompts(prompts_path)
 
@@ -206,33 +206,27 @@ for model_type in model_types:
     # Model-specific configurations with coefficient ranges
     if model_type == "llama_70b":
         layer_id = [("RepE steering layers", list(range(-1, -66, -1)))]
-        coeff_values = [0.5]
+        coeff_values = [0.5, 1.0, 1.5, 2.0]
         num_new_tokens = 256
     elif model_type == "llama":
         layer_id = [("RepE steering layers", list(range(-1, -21, -1)))]
-        coeff_values = [1.0]
+        coeff_values = [1.0, 1.5, 2.0, 2.5]
         num_new_tokens = 256
     elif model_type == "gpt_oss":
         layer_id = [("RepE steering layers", list(range(-7, -15, -1)))]
-        coeff_values = [1.5]
+        coeff_values = [0.5, 1.0, 1.5, 2.0]
         num_new_tokens = 256
     elif model_type == "gpt_oss_120b":
         layer_id = [("RepE steering layers", list(range(-16, -24, -1)))]
-        # coeff_values = [0.5, 1.0, 1.5, 2.0]
-        coeff_values = [1.0]
-
+        coeff_values = [0.5, 1.0, 1.5, 2.0]
         num_new_tokens = 256
     elif model_type == "qwen3_small":
         layer_id = [("RepE steering layers", list(range(-1, -13, -1)))]
-        # coeff_values = [0.5, 1.0, 1.5, 2.0]
-        coeff_values = [1.0]
-
+        coeff_values = [0.5, 0.7, 1.0, 1.5, 2.0, 2.5]
         num_new_tokens = 256
     elif model_type == "qwen3_large":   
         layer_id = [("RepE steering layers", list(range(-3, -40, -1)))]
-        # coeff_values = [0.5, 1.0, 1.5, 2.0]
-        coeff_values = [1.0]
-
+        coeff_values = [0.5, 3.0, 4.0, 5.0, 6.0]
         num_new_tokens = 256
     elif model_type == 'phi-small':
         layer_id = [("RepE steering layers", list(range(-3, -22, -1)))]
@@ -240,9 +234,7 @@ for model_type in model_types:
         num_new_tokens = 256
     elif model_type == 'phi-large':
         layer_id = [("RepE steering layers", list(range(-3, -19, -1)))]
-        # coeff_values = [0.5, 1.0, 1.5, 2.0]
-        coeff_values = [0.2]
-
+        coeff_values = [0.5, 0.7, 1.0, 1.5, 2.0, 2.5, 3.0]
         num_new_tokens = 256
     else:
         raise ValueError(f"Unknown model_type: {model_type}")
@@ -257,7 +249,7 @@ for model_type in model_types:
                 all_results.append((model_name, label, layers, coeff, results))
 
         # Save this model's results to its own file
-        model_out_path = out_dir / f"{model_name}_repE_100_test_cases.txt"
+        model_out_path = out_dir / f"{model_name}_repE_multi_coef_2_test_cases.txt"
         save_model_results_txt(model_results, model_out_path)
         print(f"\nModel {model_name} results saved to: {model_out_path}")
     
@@ -266,7 +258,7 @@ for model_type in model_types:
         print(f"Skipping model {model_name} and continuing with next model...")
         # Still save partial results if any were generated
         if model_results:
-            model_out_path = out_dir / f"{model_name}_repE_100_test_cases_PARTIAL.txt"
+            model_out_path = out_dir / f"{model_name}_repE_multi_coef_2_test_cases_PARTIAL.txt"
             save_model_results_txt(model_results, model_out_path)
             print(f"Partial results saved to: {model_out_path}")
 
@@ -277,7 +269,7 @@ for model_type in model_types:
     torch.cuda.empty_cache()
 
 # Save all results from all models
-out_path = out_dir / "all_models_repE_multi_100_test_cases.txt"
+out_path = out_dir / "all_models_repE_multi_coef_2_test_cases.txt"
 save_all_results_txt(all_results, out_path)
 print(f"\nAll results saved to: {out_path}")
 print(f"\nTotal evaluations completed: {len(all_results)}")

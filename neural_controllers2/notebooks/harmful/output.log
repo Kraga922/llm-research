@@ -1,0 +1,124 @@
+nohup: ignoring input
+Activating nc_env_qwen...
+Running Qwen/LLaMA/GPT-OSS models...
+Transformers version: 4.56.0.dev0
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:11,  1.62s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:09,  1.58s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.57s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:06<00:06,  1.56s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:07<00:04,  1.54s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:09<00:03,  1.53s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:10<00:01,  1.52s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.51s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.54s/it]
+Loaded model: llama_3.3_70b_4bit_it
+n_components: 5
+Hidden layers KA: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, -48, -49, -50, -51, -52, -53, -54, -55, -56, -57, -58, -59, -60, -61, -62, -63, -64, -65, -66, -67, -68, -69, -70, -71, -72, -73, -74, -75, -76, -77, -78, -79]
+Hidden layers: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39, -40, -41, -42, -43, -44, -45, -46, -47, -48, -49, -50, -51, -52, -53, -54, -55, -56, -57, -58, -59, -60, -61, -62, -63, -64, -65, -66, -67, -68, -69, -70, -71, -72, -73, -74, -75, -76, -77, -78, -79]
+
+Controller hyperparameters:
+control_method       : rfm
+rfm_iters            : 8
+forward_batch_size   : 2
+M_batch_size         : 2048
+n_components         : 5
+calibrate            : False
+
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/best_coef_finder.py", line 171, in <module>
+    harmful_controller.load(concept="harmful", model_name=model_name, path="../../directions/")
+  File "/home/ubuntu/llm-research/neural_controllers2/neural_controllers.py", line 410, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../../directions/rfm_harmful_llama_3.3_70b_4bit_it.pkl'
+Activating phi_nc_env...
+Running Phi models...
+Transformers version: 4.49.0
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.23s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.27s/it]
+/home/ubuntu/miniconda3/envs/phi_nc_env/lib/python3.10/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(io.BytesIO(b))
+Loaded model: phi-small
+n_components: 5
+Hidden layers KA: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31]
+Hidden layers: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31]
+
+Controller hyperparameters:
+control_method       : rfm
+rfm_iters            : 8
+forward_batch_size   : 2
+M_batch_size         : 2048
+n_components         : 5
+calibrate            : False
+
+Detector found
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 1 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 1.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 2 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 2.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 3 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 3.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 4 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 4.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31], coef 5.5 ===
+
+Saved all results to 10_coef_test/phi-small_10_coef_10_prompts.txt
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:07,  1.59s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:03<00:06,  1.58s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:04<00:04,  1.58s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:06<00:03,  1.56s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:07<00:01,  1.55s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:09<00:00,  1.57s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:09<00:00,  1.57s/it]
+/home/ubuntu/miniconda3/envs/phi_nc_env/lib/python3.10/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(io.BytesIO(b))
+Loaded model: phi-large
+n_components: 5
+Hidden layers KA: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39]
+Hidden layers: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39]
+
+Controller hyperparameters:
+control_method       : rfm
+rfm_iters            : 8
+forward_batch_size   : 2
+M_batch_size         : 2048
+n_components         : 5
+calibrate            : False
+
+Detector found
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 1 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 1.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 2 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 2.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 3 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 3.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 4 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 4.2 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 4.5 ===
+
+
+=== Testing Universal steering layers (all layers), layers [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 5 ===
+
+Saved all results to 10_coef_test/phi-large_10_coef_10_prompts.txt
+All runs completed.
