@@ -24,12 +24,7 @@ torch.cuda.manual_seed(0)
 np.random.seed(0)
 
 model_types = [
-    # "llama_70b",
-    # "llama",
-    # "qwen3_small",
-    # "qwen3_large",
-    # "gpt_oss",
-    # "gpt_oss_120b",
+
     "phi-small",
     "phi-large"
 ]
@@ -38,89 +33,8 @@ for model_type in model_types:
     # -----------------------------
     # Model Integration
     # -----------------------------
-    if model_type == "qwen3_small":
-        model_id = "Qwen/Qwen3-0.6B"
-        language_model = AutoModelForCausalLM.from_pretrained(
-            model_id,
-            torch_dtype=torch.float16,
-            device_map="auto",
-            trust_remote_code=True,
-            low_cpu_mem_usage=True
-        )
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_id,
-            trust_remote_code=True,
-            use_fast=True,
-            padding_side="left"
-        )
-        model_name = "qwen3_0.6b"
-        if tokenizer.pad_token_id is None:
-            tokenizer.pad_token_id = tokenizer.eos_token_id
-
-    elif model_type == "qwen3_large":
-        model_id = "Qwen/Qwen3-32B"
-        language_model = AutoModelForCausalLM.from_pretrained(
-            model_id,
-            torch_dtype=torch.float16,
-            device_map="auto",
-            trust_remote_code=True,
-            low_cpu_mem_usage=True
-        )
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_id,
-            trust_remote_code=True,
-            use_fast=True,
-            padding_side="left"
-        )
-        model_name = "qwen3_32b"
-        if tokenizer.pad_token_id is None:
-            tokenizer.pad_token_id = tokenizer.eos_token_id
-
-    elif model_type == "llama":
-        model_id = "meta-llama/Meta-Llama-3.1-8B-Instruct"
-        language_model = AutoModelForCausalLM.from_pretrained(
-            model_id, device_map="auto", torch_dtype=torch.float16
-        )
-        use_fast_tokenizer = "LlamaForCausalLM" not in language_model.config.architectures
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_id, use_fast=use_fast_tokenizer, padding_side="left", legacy=False
-        )
-        model_name = "llama_3_8b_it"
-
-    elif model_type == "llama_70b":
-        model_id = "unsloth/Llama-3.3-70B-Instruct-bnb-4bit"
-        language_model = AutoModelForCausalLM.from_pretrained(
-            model_id, device_map="cuda"
-        )
-        use_fast_tokenizer = "LlamaForCausalLM" not in language_model.config.architectures
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_id, use_fast=use_fast_tokenizer, padding_side="left", legacy=False
-        )
-        model_name = "llama_3.3_70b_4bit_it"
-
-    elif model_type == "gpt_oss":
-        model_id = "openai/gpt-oss-20b"
-        language_model = AutoModelForCausalLM.from_pretrained(
-            model_id, device_map="auto", torch_dtype=torch.bfloat16
-        )
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_id, use_fast=True, padding_side="left", legacy=False
-        )
-        model_name = "gpt_oss"
-
-    elif model_type == 'gpt_oss_120b':
-        model_id = "openai/gpt-oss-120b"
-        language_model = AutoModelForCausalLM.from_pretrained(
-            model_id, device_map="auto", torch_dtype=torch.bfloat16
-        )
-
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_id, use_fast=True, padding_side="left", legacy=False
-        )
-
-        model_name = 'gpt_oss_120b'
-
-    elif model_type == 'phi-small':
+   
+    if model_type == 'phi-small':
         model_id = "microsoft/Phi-4-mini-instruct"
         language_model = AutoModelForCausalLM.from_pretrained(
             model_id,
@@ -171,57 +85,13 @@ for model_type in model_types:
     harmful_controller.load(concept="harmful", model_name=model_name, path="../../directions/")
     # harmful_controller.load(concept="harmful", model_name= "llama_3_70b_it", path="../../directions/")
 
-
-    if model_type == "llama_70b":
-        
-        # >>> Two sets of layers with labels
-        layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -80, -1)))
-        ]
-
-        # >>> Coefs to test
-        coefs_to_test = [0.3]
-
-        num_new_tokens = 256
-    elif model_type == "llama":
-        layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -31, -1))),
-        ]
-        coefs_to_test = [0.55]
-        num_new_tokens = 256
-    elif model_type == "gpt_oss":
-        layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -24, -1))),
-        ]
-        coefs_to_test = [43]
-        num_new_tokens = 256
-
-    elif model_type == "gpt_oss_120b":
-        layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -36, -1))),
-        ]
-        coefs_to_test = [70]
-        num_new_tokens = 256
-
-    elif model_type == "qwen3_small":
-        layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -28, -1))),
-        ]
-        coefs_to_test = [1]
-        num_new_tokens = 256
-    elif model_type == "qwen3_large":   
-        layers_to_test = [
-            ("RepE steering layers", list(range(-3, -40, -1)))
-        ]
-        coefs_to_test = [15]
-        num_new_tokens = 256
-    elif model_type == 'phi-small':
+    if model_type == 'phi-small':
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -32, -1))),
             # ("RepE steering layers", list(range(-3, -22, -1)))
             # ("Custom", list(range(-16, -20, -1)))
         ]
-        coefs_to_test = [2.5]
+        coefs_to_test = [2.75]
         # coefs_to_test = [1.3]
 
         
@@ -232,7 +102,7 @@ for model_type in model_types:
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -40, -1))),
         ]
-        coefs_to_test = [2.9]
+        coefs_to_test = [2.5]
         # coefs_to_test = [1.8, 1.9, 2.1, 2.2, 2.3, 2.4, 2.6, 2.7, 2.8, 2.9]
         num_new_tokens = 256
     else:
@@ -308,23 +178,8 @@ for model_type in model_types:
         prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
         prompts = load_prompts(prompts_path)
 
-        # out_dir = Path("steering_results")
-        # out_dir.mkdir(exist_ok=True)
 
-        # all_results = []
-
-        # # loop over layers + coefs
-        # for label, layers in layers_to_test:
-        #     for coef in coefs_to_test:
-        #         print(f"\n=== Testing {label}, layers {layers}, coef {coef} ===\n")
-        #         results = evaluate(prompts, layers, coef)
-        #         all_results.append((label, layers, coef, results))
-
-        # # save everything into one file
-        # out_path = out_dir / f"{model_name}_100_test_cases.txt"
-        # save_all_results_txt(all_results, out_path)
-
-        out_dir = Path("coef_layer_results")
+        out_dir = Path("Universal_Steering100")
         out_dir.mkdir(exist_ok=True)
 
         all_results = []

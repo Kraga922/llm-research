@@ -28,8 +28,8 @@ model_types = [
     # "llama",
     # "qwen3_small",
     "qwen3_large",
-    # "gpt_oss",
-    # "gpt_oss_120b",
+    "gpt_oss",
+    "gpt_oss_120b",
     # "phi-small",
     # "phi-large"
 ]
@@ -191,13 +191,13 @@ for model_type in model_types:
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -31, -1))),
         ]
-        coefs_to_test = [0.55]
+        coefs_to_test = [0.6]
         num_new_tokens = 256
     elif model_type == "gpt_oss":
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -24, -1))),
         ]
-        coefs_to_test = [43]
+        coefs_to_test = [49]
         num_new_tokens = 256
 
     elif model_type == "gpt_oss_120b":
@@ -219,22 +219,8 @@ for model_type in model_types:
             ("RepE steering layers", list(range(-1, -64, -1)))
         ]
         # coefs_to_test = [22]
-        coefs_to_test = [9.5]
+        coefs_to_test = [9]
         
-        num_new_tokens = 256
-    elif model_type == 'phi-small':
-        layers_to_test = [
-            # ("Universal steering layers (all layers)", list(range(-1, -32, -1))),
-            # ("RepE steering layers", list(range(-3, -22, -1)))
-            ("Custom", list(range(-16, -20, -1)))
-        ]
-        coefs_to_test = [0.5]
-        num_new_tokens = 256
-    elif model_type == 'phi-large':
-        layers_to_test = [
-            ("Universal steering layers (all layers)", list(range(-1, -40, -1))),
-        ]
-        coefs_to_test = [2]
         num_new_tokens = 256
     else:
         raise ValueError(f"Unknown model_type: {model_type}")  
@@ -309,23 +295,7 @@ for model_type in model_types:
         prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
         prompts = load_prompts(prompts_path)
 
-        # out_dir = Path("steering_results")
-        # out_dir.mkdir(exist_ok=True)
-
-        # all_results = []
-
-        # # loop over layers + coefs
-        # for label, layers in layers_to_test:
-        #     for coef in coefs_to_test:
-        #         print(f"\n=== Testing {label}, layers {layers}, coef {coef} ===\n")
-        #         results = evaluate(prompts, layers, coef)
-        #         all_results.append((label, layers, coef, results))
-
-        # # save everything into one file
-        # out_path = out_dir / f"{model_name}_100_test_cases.txt"
-        # save_all_results_txt(all_results, out_path)
-
-        out_dir = Path("coef_layer_results")
+        out_dir = Path("Universal_Steering100")
         out_dir.mkdir(exist_ok=True)
 
         all_results = []
@@ -338,6 +308,6 @@ for model_type in model_types:
                 all_results.append((label, layers, coef, results))
 
         # save everything into one file
-        out_path = out_dir / f"{model_name}_100_test_cases3.txt"
+        out_path = out_dir / f"{model_name}_100_test_cases.txt"
         # out_path = out_dir / f"{model_name}_test_coef.txt"
         save_all_results_txt(all_results, out_path)

@@ -26,9 +26,9 @@ np.random.seed(0)
 model_types = [
     "llama_70b",
     "llama",
-    "qwen3_small",
-    "qwen3_large",
-    "gpt_oss",
+    # "qwen3_small",
+    # "qwen3_large",
+    # "gpt_oss",
     "gpt_oss_120b",
     # "phi-small",
     # "phi-large"
@@ -96,7 +96,7 @@ for model_type in model_types:
         tokenizer = AutoTokenizer.from_pretrained(
             model_id, use_fast=use_fast_tokenizer, padding_side="left", legacy=False
         )
-        model_name = "llama_3.3_70b_4bit_it"
+        model_name = "llama_3_70b_it"
 
     elif model_type == "gpt_oss":
         model_id = "openai/gpt-oss-20b"
@@ -179,20 +179,20 @@ for model_type in model_types:
         ]
 
         # >>> Coefs to test
-        coefs_to_test = [0.55]
+        coefs_to_test = [0.3]
 
         num_new_tokens = 256
     elif model_type == "llama":
         layers_to_test = [
             ("RepE steering layers", list(range(-1, -21, -1)))
         ]
-        coefs_to_test = [0.3]
+        coefs_to_test = [0.6]
         num_new_tokens = 256
     elif model_type == "gpt_oss":
         layers_to_test = [
             ("RepE steering layers", list(range(-7, -16, -1)))
         ]
-        coefs_to_test = [43]
+        coefs_to_test = [49]
         num_new_tokens = 256
 
     elif model_type == "gpt_oss_120b":
@@ -212,7 +212,7 @@ for model_type in model_types:
         layers_to_test = [
             ("RepE steering layers", list(range(-3, -40, -1)))
         ]
-        coefs_to_test = [9.5]
+        coefs_to_test = [9]
         num_new_tokens = 256
     elif model_type == 'phi-small':
         layers_to_test = [
@@ -298,7 +298,7 @@ for model_type in model_types:
         prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
         prompts = load_prompts(prompts_path)
 
-        out_dir = Path("Universal_Steering_with_RepE_layers")
+        out_dir = Path("Universal_Steering_with_RepE_layers100")
         out_dir.mkdir(exist_ok=True)
 
         all_results = []

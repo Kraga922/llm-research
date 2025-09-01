@@ -24,14 +24,14 @@ torch.cuda.manual_seed(0)
 np.random.seed(0)
 
 model_types = [
-    "llama_70b",
-    "llama",
-    "qwen3_small",
-    "qwen3_large",
-    "gpt_oss",
-    "gpt_oss_120b",
-    # "phi-small",
-    # "phi-large"
+    # "llama_70b",
+    # "llama",
+    # "qwen3_small",
+    # "qwen3_large",
+    # "gpt_oss",
+    # "gpt_oss_120b",
+    "phi-small",
+    "phi-large"
 ]
 
 for model_type in model_types:
@@ -218,13 +218,13 @@ for model_type in model_types:
         layers_to_test = [
             ("RepE steering layers", list(range(-3, -23, -1)))
         ]
-        coefs_to_test = [2.5]
+        coefs_to_test = [2.75]
         num_new_tokens = 256
     elif model_type == 'phi-large':
         layers_to_test = [
             ("RepE steering layers", list(range(-3, -20, -1)))
         ]
-        coefs_to_test = [2.9]
+        coefs_to_test = [2.5]
         num_new_tokens = 256
     else:
         raise ValueError(f"Unknown model_type: {model_type}")  
@@ -298,7 +298,7 @@ for model_type in model_types:
         prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
         prompts = load_prompts(prompts_path)
 
-        out_dir = Path("Universal_Steering_with_RepE_layers")
+        out_dir = Path("Universal_Steering_with_RepE_layers100")
         out_dir.mkdir(exist_ok=True)
 
         all_results = []

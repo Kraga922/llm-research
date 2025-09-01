@@ -1,5 +1,23 @@
 nohup: ignoring input
-Traceback (most recent call last):
-  File "/home/ubuntu/llm-research/RepE_privacy2/examples/harmless_harmful/eval_repe_coef.py", line 6, in <module>
-    from transformers import AutoTokenizer, pipeline, AutoModelForCausalLM
-ModuleNotFoundError: No module named 'transformers'
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+==================================================
+Processing model type: qwen3_large
+==================================================
+
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [00:10<02:51, 10.74s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [00:15<01:49,  7.27s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [00:19<01:23,  5.96s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [00:24<01:08,  5.27s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [00:33<01:21,  6.80s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [00:45<01:32,  8.43s/it]Loading checkpoint shards:  41%|████      | 7/17 [00:50<01:12,  7.30s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [00:54<00:57,  6.44s/it]Loading checkpoint shards:  53%|█████▎    | 9/17 [00:56<00:38,  4.84s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [00:57<00:26,  3.76s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [00:58<00:18,  3.02s/it]Loading checkpoint shards:  71%|███████   | 12/17 [01:00<00:12,  2.51s/it]Loading checkpoint shards:  76%|███████▋  | 13/17 [01:01<00:08,  2.15s/it]Loading checkpoint shards:  82%|████████▏ | 14/17 [01:02<00:05,  1.91s/it]Loading checkpoint shards:  88%|████████▊ | 15/17 [01:04<00:03,  1.73s/it]Loading checkpoint shards:  94%|█████████▍| 16/17 [01:05<00:01,  1.62s/it]Loading checkpoint shards: 100%|██████████| 17/17 [01:06<00:00,  1.44s/it]Loading checkpoint shards: 100%|██████████| 17/17 [01:06<00:00,  3.92s/it]
+Device set to use cuda:1
+Loaded model: qwen3_large
+
+=== Evaluating qwen3_large, RepE steering layers, layers [-3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 1 ===
+
+Evaluating coef=1:   0%|          | 0/10 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Evaluating coef=1:  10%|█         | 1/10 [00:33<05:00, 33.34s/it]Evaluating coef=1:  20%|██        | 2/10 [01:06<04:23, 33.00s/it]Evaluating coef=1:  30%|███       | 3/10 [01:38<03:49, 32.82s/it]Evaluating coef=1:  40%|████      | 4/10 [02:11<03:16, 32.72s/it]Evaluating coef=1:  50%|█████     | 5/10 [02:27<02:14, 26.91s/it]Evaluating coef=1:  60%|██████    | 6/10 [03:00<01:55, 28.83s/it]Evaluating coef=1:  70%|███████   | 7/10 [03:32<01:30, 30.04s/it]Evaluating coef=1:  80%|████████  | 8/10 [04:05<01:01, 30.83s/it]Evaluating coef=1:  90%|█████████ | 9/10 [04:38<00:31, 31.37s/it]Evaluating coef=1: 100%|██████████| 10/10 [05:10<00:00, 31.73s/it]Evaluating coef=1: 100%|██████████| 10/10 [05:10<00:00, 31.06s/it]
+
+=== Evaluating qwen3_large, RepE steering layers, layers [-3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 2 ===
+
+Evaluating coef=2:   0%|          | 0/10 [00:00<?, ?it/s]Evaluating coef=2:  10%|█         | 1/10 [00:32<04:52, 32.53s/it]Evaluating coef=2:  20%|██        | 2/10 [01:02<04:10, 31.30s/it]Evaluating coef=2:  30%|███       | 3/10 [01:29<03:23, 29.09s/it]Evaluating coef=2:  40%|████      | 4/10 [01:55<02:48, 28.05s/it]Evaluating coef=2:  50%|█████     | 5/10 [02:08<01:52, 22.43s/it]Evaluating coef=2:  60%|██████    | 6/10 [02:34<01:35, 23.81s/it]Evaluating coef=2:  70%|███████   | 7/10 [02:47<01:00, 20.07s/it]Evaluating coef=2:  80%|████████  | 8/10 [02:56<00:33, 16.57s/it]Evaluating coef=2:  90%|█████████ | 9/10 [03:22<00:19, 19.63s/it]Evaluating coef=2: 100%|██████████| 10/10 [03:48<00:00, 21.63s/it]Evaluating coef=2: 100%|██████████| 10/10 [03:48<00:00, 22.87s/it]
+
+=== Evaluating qwen3_large, RepE steering layers, layers [-3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -18, -19, -20, -21, -22, -23, -24, -25, -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -38, -39], coef 3 ===
+
+Evaluating coef=3:   0%|          | 0/10 [00:00<?, ?it/s]

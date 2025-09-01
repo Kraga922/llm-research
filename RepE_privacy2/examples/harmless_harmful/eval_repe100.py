@@ -92,12 +92,12 @@ def save_all_results_txt(all_results, out_path):
 model_types = [
     # "llama_70b",
     # "llama",
-    # "phi-large",
     # "qwen3_small",
-    "qwen3_large",
+    # "qwen3_large",
     # "gpt_oss",
     # "gpt_oss_120b",
     # "phi-small",
+    "phi-large"
 ]
 
 # Load prompts once (outside the loop) - using current working directory
@@ -107,13 +107,13 @@ current_dir = Path.cwd()  # Get current working directory instead of hardcoded p
 # if not prompts_path.exists():
 #     # Fallback to original path if file not found in current directory
     
-prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts_small.txt")
+prompts_path = Path("/home/ubuntu/llm-research/neural_controllers2/notebooks/harmful/harmful_prompts.txt")
 
 prompts = load_prompts(prompts_path)
 
 # Create results directory in current working directory
 # out_dir = current_dir / "RepE_results"
-out_dir = current_dir / "RepE_buckets"
+out_dir = current_dir / "RepE_100"
 out_dir.mkdir(exist_ok=True)
 
 all_results = []
@@ -220,63 +220,48 @@ for model_type in model_types:
     component_index = 0
 
     # Model-specific configurations with coefficient ranges
-    if model_type == "llama_70b":
-        layer_id = [("RepE steering layers", list(range(-1, -66, -1)))]
-        # coeff_values = [0.5]
-        coeff_values = [0.2, 0.3, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.8]
-        num_new_tokens = 256
-    elif model_type == "llama":
+
+    if model_type == "llama":
         layer_id = [("RepE steering layers", list(range(-1, -21, -1)))]
-        # coeff_values = [1.0]
-        coeff_values = [0.4, 0.6, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 1.8]
+        coeff_values = [0.9]
 
         num_new_tokens = 256
+
+    elif model_type == "llama_70b":
+        layer_id = [("RepE steering layers", list(range(-1, -66, -1)))]
+        coeff_values = [0.5]
+        num_new_tokens = 256
+
     elif model_type == "gpt_oss":
         layer_id = [("RepE steering layers", list(range(-7, -15, -1)))]
-        # coeff_values = [120]  # Updated to match your working example
-        # coeff_values = [60, 80, 90, 100, 110, 120, 130, 140, 160, 180]
-        # coeff_values = [90, 110, 120, 130, 140, 160, 180, 200, 220, 240]
-        # coeff_values = [90, 110, 130, 150, 170, 180, 190, 200, 210, 220]
-        coeff_values = [240, 260, 280, 300, 420]
-
+        coeff_values = [180]  # Updated to match your working example
 
 
         num_new_tokens = 256
     elif model_type == "gpt_oss_120b":
         layer_id = [("RepE steering layers", list(range(-16, -24, -1)))]
-        # coeff_values = [120]
-        coeff_values = [60, 80, 90, 100, 110, 120, 130, 140, 160, 180]
+        coeff_values = [200]
 
         num_new_tokens = 256
     elif model_type == "qwen3_small":
         layer_id = [("RepE steering layers", list(range(-1, -13, -1)))]
-        # coeff_values = [0.7]  # Updated to match your working example
-        # coeff_values = [0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.9, 1.0]
-        coeff_values = [0.1, 0.3, 0.5, 0.6, 0.7, 0.8, 1.0, 1.1, 1.2, 1.3]
-
-
+        coeff_values = [0.7]  # Updated to match your working example
 
         num_new_tokens = 256
     elif model_type == "qwen3_large":   
         layer_id = [("RepE steering layers", list(range(-3, -40, -1)))]
-        # coeff_values = [8.0]
-        # coeff_values = [4, 5, 6, 7, 7.5, 8.0, 8.5, 9, 10, 12]
-        # coeff_values = [1, 2, 5, 6, 7, 8, 9, 10, 12, 15]
-        coeff_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15]
-
+        coeff_values = [8.0]
 
         num_new_tokens = 256
     elif model_type == 'phi-small':
         layer_id = [("RepE steering layers", list(range(-3, -22, -1)))]
-        # coeff_values = [3.0]
-        coeff_values = [1.0, 1.5, 2.0, 2.5, 2.8, 3.0, 3.2, 3.5, 4.0, 5.0]
+        coeff_values = [3.0]
 
         num_new_tokens = 256
     elif model_type == 'phi-large':
         layer_id = [("RepE steering layers", list(range(-3, -19, -1)))]
-        # coeff_values = [5.0]
-        # coeff_values = [2.0, 2.5, 3.0, 4.0, 4.5, 5.0, 5.5, 6.0, 7.0, 8.0]
-        coeff_values = [6.0, 6.2, 6.4, 6.6, 6.8, 7.0, 7.5, 8.0, 8.5, 9.0]
+        # coeff_values = [7.0]
+        coeff_values = [6.6]
 
 
         num_new_tokens = 256
@@ -303,7 +288,7 @@ for model_type in model_types:
         # Still save partial results if any were generated
         if model_results:
             # model_out_path = out_dir / f"{model_name}_repE_100_test_cases_PARTIAL.txt"
-            model_out_path = out_dir / f"{model_name}_repE_10_test_cases_PARTIAL.txt"
+            model_out_path = out_dir / f"{model_name}_repE_100_test_cases_PARTIAL.txt"
             save_model_results_txt(model_results, model_out_path)
             print(f"Partial results saved to: {model_out_path}")
 
@@ -314,8 +299,9 @@ for model_type in model_types:
     torch.cuda.empty_cache()
 
 # Save all results from all models
-out_path = out_dir / "RepE10.txt"
+# out_path = out_dir / "RepE10.txt"
+
 # out_path = out_dir / "all_models_repE_multi_100_test_cases.txt"
-save_all_results_txt(all_results, out_path)
-print(f"\nAll results saved to: {out_path}")
-print(f"\nTotal evaluations completed: {len(all_results)}")
+# save_all_results_txt(all_results, out_path)
+# print(f"\nAll results saved to: {out_path}")
+# print(f"\nTotal evaluations completed: {len(all_results)}")

@@ -24,12 +24,12 @@ torch.cuda.manual_seed(0)
 np.random.seed(0)
 
 model_types = [
-    "llama_70b",
-    "llama",
+    # "llama_70b",
+    # "llama",
     "qwen3_small",
-    "qwen3_large",
+    # "qwen3_large",
     "gpt_oss",
-    "gpt_oss_120b",
+    # "gpt_oss_120b",
     # "phi-small",
     # "phi-large"
 ]
@@ -96,7 +96,7 @@ for model_type in model_types:
         tokenizer = AutoTokenizer.from_pretrained(
             model_id, use_fast=use_fast_tokenizer, padding_side="left", legacy=False
         )
-        model_name = "llama_3.3_70b_4bit_it"
+        model_name = "llama_3_70b_it"
 
     elif model_type == "gpt_oss":
         model_id = "openai/gpt-oss-20b"
@@ -270,7 +270,7 @@ for model_type in model_types:
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -24, -1))),
         ]
-        coefs_to_test = [37, 38, 39, 40, 41, 42, 43, 45, 47, 49]
+        coefs_to_test = [41, 42, 43, 45, 47, 49, 51, 53, 55, 56]
         num_new_tokens = 256
 
     elif model_type == "gpt_oss_120b":
@@ -284,7 +284,8 @@ for model_type in model_types:
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -28, -1))),
         ]
-        coefs_to_test = [1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4]
+        coefs_to_test = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8]
+
         num_new_tokens = 256
 
     elif model_type == "qwen3_large":   
