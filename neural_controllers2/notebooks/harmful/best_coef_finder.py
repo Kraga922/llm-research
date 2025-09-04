@@ -26,10 +26,10 @@ np.random.seed(0)
 model_types = [
     # "llama_70b",
     # "llama",
-    "qwen3_small",
+    # "qwen3_small",
     # "qwen3_large",
-    "gpt_oss",
-    # "gpt_oss_120b",
+    # "gpt_oss",
+    "gpt_oss_120b",
     # "phi-small",
     # "phi-large"
 ]
@@ -277,7 +277,10 @@ for model_type in model_types:
         layers_to_test = [
             ("Universal steering layers (all layers)", list(range(-1, -36, -1))),
         ]
-        coefs_to_test = [60, 62, 64, 66, 68, 70, 72, 74, 77, 80]
+        # coefs_to_test = [60, 62, 64, 66, 68, 70, 72, 74, 77, 80]
+        # coefs_to_test = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140]
+        coefs_to_test = [50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300]
+
         num_new_tokens = 256
 
     elif model_type == "qwen3_small":
